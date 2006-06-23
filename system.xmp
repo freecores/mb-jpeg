@@ -1,0 +1,50 @@
+#Please do not modify this file by hand
+XmpVersion: 7.1
+IntStyle: default
+ModuleSearchPath: D:/XilinxXUP/lib/
+MHS File: system.mhs
+MSS File: system.mss
+NPL File: projnav/system.ise
+Architecture: virtex2p
+Device: xc2vp30
+Package: ff896
+SpeedGrade: -7
+UseProjNav: 0
+AddToNPL: 0
+PNImportBitFile: 
+PNImportBmmFile: 
+UserCmd1: 
+UserCmd1Type: 0
+UserCmd2: 
+UserCmd2Type: 0
+SynProj: xst
+ReloadPbde: 0
+MainMhsEditor: 0
+InsertNoPads: 0
+HdlLang: VHDL
+Simulator: mti
+SimModel: BEHAVIORAL
+SimXLib: 
+SimEdkLib: 
+MixLangSim: 1
+UcfFile: data/system.ucf
+Processor: microblaze_0
+BootLoop: 0
+XmdStub: 0
+SwProj: decoder
+Processor: microblaze_0
+Executable: decoder/executable.elf
+Source: decoder/JpegToBmp.c
+DefaultInit: executable
+InitBram: 1
+Active: 1
+CompilerOptLevel: 2
+GlobPtrOpt: 0
+DebugSym: 1
+AsmOpt: 
+LinkOpt: 
+ProgStart: 
+StackSize: 
+HeapSize: 
+LinkerScript: 
+ProgCCFlags: 

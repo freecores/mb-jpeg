@@ -1,0 +1,194 @@
+Release 7.1.02i - platgen EDK_H.12.5.1
+Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+
+Command Line: platgen -p xc2vp30ff896-7 -lang vhdl -lp D:/XilinxXUP/lib/ -st xst
+system.mhs 
+
+Parse system.mhs ...
+
+Read MPD definitions ...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
+_cntlr_v2_1_0.tcl ...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+tcl ...
+
+Overriding IP level properties ...
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:60 - tool overriding c_family value virtex2 to virtex2p
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:61 - tool overriding c_instance value microblaze to microblaze_0
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:90 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:97 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
+opb_mdm (debug_module) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd:38
+- tool overriding c_family value virtex2 to virtex2p
+bram_block (lmb_bram) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (leds_4bit) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
+38 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (dipsws_4bit) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
+38 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (pushbuttons_5bit) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
+38 - tool overriding c_family value virtex2 to virtex2p
+dcm_module (dcm_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd:56 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_1) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Address Map for Processor microblaze_0
+  (0x00000000-0x0000ffff) dlmb_cntlr	dlmb
+  (0x00000000-0x0000ffff) ilmb_cntlr	ilmb
+  (0x40000000-0x4000ffff) PushButtons_5Bit	mb_opb
+  (0x40020000-0x4002ffff) LEDs_4Bit	mb_opb
+  (0x40040000-0x4004ffff) DIPSWs_4Bit	mb_opb
+  (0x40600000-0x4060ffff) RS232_Uart_1	mb_opb
+  (0x41400000-0x4140ffff) debug_module	mb_opb
+  (0x41800000-0x4180ffff) SysACE_CompactFlash	mb_opb
+  (0x70000000-0x7000ffff) data_bram_if_cntlr_0	dlmb
+  (0x70010000-0x7001ffff) data_bram_if_cntlr_1	dlmb
+
+Check platform configuration ...
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs:55 - 2 master(s) : 6 slave(s)
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs:81 - 1 master(s) : 1 slave(s)
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs:89 - 1 master(s) : 3 slave(s)
+
+Check port drivers...
+
+Check platform address map ...
+
+Overriding system level properties ...
+opb_v20 (mb_opb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:36
+- tool overriding c_num_masters value 4 to 2
+opb_v20 (mb_opb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:37
+- tool overriding c_num_slaves value 4 to 6
+lmb_v10 (ilmb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
+- tool overriding c_lmb_num_slaves value 4 to 1
+lmb_v10 (dlmb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
+- tool overriding c_lmb_num_slaves value 4 to 3
+lmb_bram_if_cntlr (dlmb_cntlr) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+lmb_bram_if_cntlr (ilmb_cntlr) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+bram_block (lmb_bram) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:35 - tool overriding c_memsize value 2048 to 65536
+bram_block (data_bram_0) - D:\mb-jpeg\system.mhs:214 - tool overriding c_memsize
+value 16384 to 65536
+lmb_bram_if_cntlr (data_bram_if_cntlr_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+bram_block (data_bram_1) - D:\mb-jpeg\system.mhs:230 - tool overriding c_memsize
+value 16384 to 65536
+lmb_bram_if_cntlr (data_bram_if_cntlr_1) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+
+Performing System level DRCs on properties...
+
+Running UPDATE Tcl procedures for OPTION PLATGEN_SYSLEVEL_UPDATE_PROC...
+
+Modify defaults ...
+
+Processing licensed instances ...
+Completion time: 0.00 seconds
+
+Creating hardware output directories ...
+
+Managing hardware (BBD-specified) netlist files ...
+
+Managing cache ...
+
+Elaborating instances ...
+bram_block (lmb_bram) - D:\mb-jpeg\system.mhs:115 - elaborating IP
+bram_block (data_bram_0) - D:\mb-jpeg\system.mhs:211 - elaborating IP
+bram_block (data_bram_1) - D:\mb-jpeg\system.mhs:227 - elaborating IP
+
+Writing HDL for elaborated instances ...
+
+Inserting wrapper level ...
+Completion time: 4.00 seconds
+
+Constructing platform-level signal connectivity ...
+Completion time: 2.00 seconds
+
+Writing (top-level) BMM ...
+Writing BMM - D:\mb-jpeg\implementation\system.bmm
+
+Writing (top-level and wrappers) HDL ...
+
+Generating synthesis project file ...
+
+Running XST synthesis ...
+INFO:MDT - The following instances are synthesized with XST. The MPD option
+   IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
+   synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized.
+microblaze_0_wrapper (microblaze_0) - D:\mb-jpeg\system.mhs:35 - Running XST
+synthesis
+mb_opb_wrapper (mb_opb) - D:\mb-jpeg\system.mhs:55 - Running XST synthesis
+debug_module_wrapper (debug_module) - D:\mb-jpeg\system.mhs:63 - Running XST
+synthesis
+ilmb_wrapper (ilmb) - D:\mb-jpeg\system.mhs:81 - Running XST synthesis
+dlmb_wrapper (dlmb) - D:\mb-jpeg\system.mhs:89 - Running XST synthesis
+dlmb_cntlr_wrapper (dlmb_cntlr) - D:\mb-jpeg\system.mhs:97 - Running XST
+synthesis
+ilmb_cntlr_wrapper (ilmb_cntlr) - D:\mb-jpeg\system.mhs:106 - Running XST
+synthesis
+lmb_bram_wrapper (lmb_bram) - D:\mb-jpeg\system.mhs:115 - Running XST synthesis
+rs232_uart_1_wrapper (rs232_uart_1) - D:\mb-jpeg\system.mhs:122 - Running XST
+synthesis
+sysace_compactflash_wrapper (sysace_compactflash) - D:\mb-jpeg\system.mhs:138 -
+Running XST synthesis
+leds_4bit_wrapper (leds_4bit) - D:\mb-jpeg\system.mhs:155 - Running XST
+synthesis
+dipsws_4bit_wrapper (dipsws_4bit) - D:\mb-jpeg\system.mhs:169 - Running XST
+synthesis
+pushbuttons_5bit_wrapper (pushbuttons_5bit) - D:\mb-jpeg\system.mhs:183 -
+Running XST synthesis
+dcm_0_wrapper (dcm_0) - D:\mb-jpeg\system.mhs:197 - Running XST synthesis
+data_bram_0_wrapper (data_bram_0) - D:\mb-jpeg\system.mhs:211 - Running XST
+synthesis
+data_bram_if_cntlr_0_wrapper (data_bram_if_cntlr_0) - D:\mb-jpeg\system.mhs:218
+- Running XST synthesis
+data_bram_1_wrapper (data_bram_1) - D:\mb-jpeg\system.mhs:227 - Running XST
+synthesis
+data_bram_if_cntlr_1_wrapper (data_bram_if_cntlr_1) - D:\mb-jpeg\system.mhs:234
+- Running XST synthesis
+
+Running NGCBUILD ...
+
+Rebuilding cache ...
+Total run time: 300.00 seconds
