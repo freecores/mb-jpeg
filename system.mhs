@@ -16,20 +16,20 @@
  PARAMETER VERSION = 2.1.0
 
 
- PORT fpga_0_RS232_Uart_1_RX_pin = fpga_0_RS232_Uart_1_RX, DIR = INPUT
- PORT fpga_0_RS232_Uart_1_TX_pin = fpga_0_RS232_Uart_1_TX, DIR = OUTPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_CLK_pin = fpga_0_SysACE_CompactFlash_SysACE_CLK, DIR = INPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_MPA_pin = fpga_0_SysACE_CompactFlash_SysACE_MPA, VEC = [6:0], DIR = OUTPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_MPD_pin = fpga_0_SysACE_CompactFlash_SysACE_MPD, VEC = [15:0], DIR = INOUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_CEN_pin = fpga_0_SysACE_CompactFlash_SysACE_CEN, DIR = OUTPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_OEN_pin = fpga_0_SysACE_CompactFlash_SysACE_OEN, DIR = OUTPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_WEN_pin = fpga_0_SysACE_CompactFlash_SysACE_WEN, DIR = OUTPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_MPIRQ_pin = fpga_0_SysACE_CompactFlash_SysACE_MPIRQ, DIR = INPUT
- PORT fpga_0_LEDs_4Bit_GPIO_IO_pin = fpga_0_LEDs_4Bit_GPIO_IO, VEC = [0:3], DIR = INOUT
- PORT fpga_0_DIPSWs_4Bit_GPIO_IO_pin = fpga_0_DIPSWs_4Bit_GPIO_IO, VEC = [0:3], DIR = INOUT
- PORT fpga_0_PushButtons_5Bit_GPIO_IO_pin = fpga_0_PushButtons_5Bit_GPIO_IO, VEC = [0:4], DIR = INOUT
- PORT sys_clk_pin = dcm_clk_s, DIR = INPUT, SIGIS = DCMCLK
- PORT sys_rst_pin = sys_rst_s, DIR = INPUT
+ PORT fpga_0_RS232_Uart_1_RX_pin = fpga_0_RS232_Uart_1_RX, DIR = I
+ PORT fpga_0_RS232_Uart_1_TX_pin = fpga_0_RS232_Uart_1_TX, DIR = O
+ PORT fpga_0_SysACE_CompactFlash_SysACE_CLK_pin = fpga_0_SysACE_CompactFlash_SysACE_CLK, DIR = I
+ PORT fpga_0_SysACE_CompactFlash_SysACE_MPA_pin = fpga_0_SysACE_CompactFlash_SysACE_MPA, VEC = [6:0], DIR = O
+ PORT fpga_0_SysACE_CompactFlash_SysACE_MPD_pin = fpga_0_SysACE_CompactFlash_SysACE_MPD, VEC = [15:0], DIR = IO
+ PORT fpga_0_SysACE_CompactFlash_SysACE_CEN_pin = fpga_0_SysACE_CompactFlash_SysACE_CEN, DIR = O
+ PORT fpga_0_SysACE_CompactFlash_SysACE_OEN_pin = fpga_0_SysACE_CompactFlash_SysACE_OEN, DIR = O
+ PORT fpga_0_SysACE_CompactFlash_SysACE_WEN_pin = fpga_0_SysACE_CompactFlash_SysACE_WEN, DIR = O
+ PORT fpga_0_SysACE_CompactFlash_SysACE_MPIRQ_pin = fpga_0_SysACE_CompactFlash_SysACE_MPIRQ, DIR = I
+ PORT fpga_0_LEDs_4Bit_GPIO_IO_pin = fpga_0_LEDs_4Bit_GPIO_IO, VEC = [0:3], DIR = IO
+ PORT fpga_0_DIPSWs_4Bit_GPIO_IO_pin = fpga_0_DIPSWs_4Bit_GPIO_IO, VEC = [0:3], DIR = IO
+ PORT fpga_0_PushButtons_5Bit_GPIO_IO_pin = fpga_0_PushButtons_5Bit_GPIO_IO, VEC = [0:4], DIR = IO
+ PORT sys_clk_pin = dcm_clk_s, DIR = I, SIGIS = DCMCLK
+ PORT sys_rst_pin = sys_rst_s, DIR = I
 
 
 BEGIN microblaze

@@ -1,0 +1,234 @@
+Release 7.1.02i - libgen Xilinx EDK 7.1.2
+Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+
+Command Line: libgen -mhs system.mhs -p xc2vp30ff896-7 -lp D:/XilinxXUP/lib/
+system.mss 
+
+Output Directory (-od)		: D:\mb-jpeg\
+Part (-p)			: virtex2p
+
+Software Specification file	: system.mss
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
+_cntlr_v2_1_0.tcl ...
+Sourcing tcl file
+C:/edk/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+tcl ...
+
+Overriding IP level properties ...
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:60 - tool overriding c_family value virtex2 to virtex2p
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:61 - tool overriding c_instance value microblaze to microblaze_0
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:90 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
+microblaze (microblaze_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:97 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
+opb_mdm (debug_module) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd:38
+- tool overriding c_family value virtex2 to virtex2p
+bram_block (lmb_bram) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (leds_4bit) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
+38 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (dipsws_4bit) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
+38 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (pushbuttons_5bit) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
+38 - tool overriding c_family value virtex2 to virtex2p
+dcm_module (dcm_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd:56 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_1) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Address Map for Processor microblaze_0
+  (0x00000000-0x0000ffff) dlmb_cntlr	dlmb
+  (0x00000000-0x0000ffff) ilmb_cntlr	ilmb
+  (0x40000000-0x4000ffff) PushButtons_5Bit	mb_opb
+  (0x40020000-0x4002ffff) LEDs_4Bit	mb_opb
+  (0x40040000-0x4004ffff) DIPSWs_4Bit	mb_opb
+  (0x40600000-0x4060ffff) RS232_Uart_1	mb_opb
+  (0x41400000-0x4140ffff) debug_module	mb_opb
+  (0x41800000-0x4180ffff) SysACE_CompactFlash	mb_opb
+  (0x70000000-0x7000ffff) data_bram_if_cntlr_0	dlmb
+  (0x70010000-0x7001ffff) data_bram_if_cntlr_1	dlmb
+
+Check platform configuration ...
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs:55 - 2 master(s) : 6 slave(s)
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs:81 - 1 master(s) : 1 slave(s)
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs:89 - 1 master(s) : 3 slave(s)
+
+Check port drivers...
+
+Check platform address map ...
+
+Overriding system level properties ...
+opb_v20 (mb_opb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:36
+- tool overriding c_num_masters value 4 to 2
+opb_v20 (mb_opb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:37
+- tool overriding c_num_slaves value 4 to 6
+lmb_v10 (ilmb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
+- tool overriding c_lmb_num_slaves value 4 to 1
+lmb_v10 (dlmb) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
+- tool overriding c_lmb_num_slaves value 4 to 3
+lmb_bram_if_cntlr (dlmb_cntlr) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+lmb_bram_if_cntlr (ilmb_cntlr) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+bram_block (lmb_bram) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:35 - tool overriding c_memsize value 2048 to 65536
+bram_block (data_bram_0) - D:\mb-jpeg\system.mhs:214 - tool overriding c_memsize
+value 16384 to 65536
+lmb_bram_if_cntlr (data_bram_if_cntlr_0) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+bram_block (data_bram_1) - D:\mb-jpeg\system.mhs:230 - tool overriding c_memsize
+value 16384 to 65536
+lmb_bram_if_cntlr (data_bram_if_cntlr_1) -
+C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+
+Performing System level DRCs on properties...
+WARNING:MDT - Peripheral dcm_0 is not connected to any of the processors in the
+   system. Check for the following reasons.
+   1. dcm_0 is not connected to any of the buses connected to a processor. 
+   2. dcm_0 does not have adresses set correctly. 
+   3. dcm_0's address is not within any of the bridge windows connected to a
+   processor.
+INFO:MDT - List of peripherals addressable from processor instance microblaze_0
+   : 
+  - dlmb_cntlr
+  - data_bram_if_cntlr_0
+  - data_bram_if_cntlr_1
+  - ilmb_cntlr
+  - debug_module
+  - RS232_Uart_1
+  - SysACE_CompactFlash
+  - LEDs_4Bit
+  - DIPSWs_4Bit
+  - PushButtons_5Bit
+
+Building Directory Structure for microblaze_0
+
+Generating platform libraries and device drivers ...
+
+Running CopyFiles ...
+
+Copying files for os standalone_v1_00_a from
+C:\edk\sw\lib\bsp\standalone_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\standalone_v1_00_a\ ...
+
+Copying files for driver uartlite_v1_00_b from
+C:\edk\sw\XilinxProcessorIPLib\drivers\uartlite_v1_00_b\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\uartlite_v1_00_b\ ...
+
+Copying files for driver sysace_v1_00_a from
+C:\edk\sw\XilinxProcessorIPLib\drivers\sysace_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\sysace_v1_00_a\ ...
+
+Copying files for driver gpio_v2_00_a from
+C:\edk\sw\XilinxProcessorIPLib\drivers\gpio_v2_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\gpio_v2_00_a\ ...
+
+Copying files for driver cpu_v1_00_a from
+C:\edk\sw\XilinxProcessorIPLib\drivers\cpu_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\cpu_v1_00_a\ ...
+
+Copying files for library xilfatfs_v1_00_a from
+C:\edk\sw\lib\sw_services\xilfatfs_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\xilfatfs_v1_00_a\ ...
+
+Running DRCs for OSes, Drivers and Libraries ... 
+
+Running generate for OS'es, Drivers and Libraries ... 
+
+Running post_generate for OS'es, Drivers and Libraries ... 
+
+Running make for Drivers and Libraries ... 
+
+Configuring make for target include using:
+
+make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul  -O2 -c" "EXTRA_COMPILER_FLAGS=-g" 
+
+Configuring make for target libs using:
+
+make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul  -O2 -c" "EXTRA_COMPILER_FLAGS=-g" 
+Compiling commo
+Compiling ipi
+Compiling  microblaze_disable_dcache.
+Compiling  microblaze_disable_exceptions.
+Compiling  microblaze_disable_icache.
+Compiling  microblaze_disable_interrupts.
+Compiling  microblaze_enable_dcache.
+Compiling  microblaze_enable_exceptions.
+Compiling  microblaze_enable_icache.
+Compiling  microblaze_enable_interrupts.
+Compiling  microblaze_init_dcache_range.
+Compiling  microblaze_init_icache_range.
+Compiling  microblaze_update_dcache.
+Compiling  microblaze_update_icache.
+Compiling  inbyte.
+Compiling  microblaze_exception_handler.
+Compiling  microblaze_exceptions_g.
+Compiling  microblaze_interrupt_handler.
+Compiling  microblaze_interrupts_g.
+Compiling  outbyte.
+Compiling  hw_exception_handler.
+Compiling  src/xilfatfs_alloc.
+Compiling  src/xilfatfs_close.
+Compiling  src/xilfatfs_directory.
+Compiling  src/xilfatfs_fat.
+Compiling  src/xilfatfs_fat16.
+Compiling  src/xilfatfs_fat32.
+Compiling  src/xilfatfs_filespec.
+Compiling  src/xilfatfs_filestatus.
+Compiling  src/xilfatfs_open.
+Compiling  src/xilfatfs_part.
+Compiling  src/xilfatfs_read.
+Compiling  src/xilfatfs_wd.
+Compiling  src/xilfatfs_stats.
+Compiling  src/xilfatfs_bufcache.
+Compiling  src/xilfatfs_sysace.
+make clea
+Compiling uartlit
+Compiling sysac
+Compiling gpi
+Compiling cp
+
+Libraries generated in D:\mb-jpeg\microblaze_0\lib\ directory
+
+Running execs_generate for OS'es, Drivers and Libraries ... 
+
+LibGen Done. 

@@ -32,9 +32,9 @@ all:
 	@echo " "
 	@echo "  sim      : Generates HDL simulation models and runs simulator for chosen simulation mode"
 	@echo "  simmodel : Generates HDL simulation models for chosen simulation mode"
-	@echo "  behavioral_model:Generates behavioral HDL models with BRAM initialization"
-	@echo "  structural_model:Generates structural simulation HDL models with BRAM initialization"
-	@echo "  timing_model    : Generates timing simulation HDL models with BRAM initialization"
+	@echo "  behavioral:Generates behavioral HDL models with BRAM initialization"
+	@echo "  structural:Generates structural simulation HDL models with BRAM initialization"
+	@echo "  timing   : Generates timing simulation HDL models with BRAM initialization"
 	@echo "  vp       : Generates virtual platform model"
 	@echo " "
 	@echo "  netlistclean: Deletes netlist"
@@ -79,8 +79,6 @@ simmodel: $(DEFAULT_SIM_SCRIPT)
 behavioral_model: $(BEHAVIORAL_SIM_SCRIPT)
 
 structural_model: $(STRUCTURAL_SIM_SCRIPT)
-
-timing_model: $(TIMING_SIM_SCRIPT)
 
 vp: $(VPEXEC)
 
@@ -143,7 +141,6 @@ $(DECODER_OUTPUT) : $(DECODER_SOURCES) $(DECODER_HEADERS) $(DECODER_LINKER_SCRIP
 	@mkdir -p $(DECODER_OUTPUT_DIR) 
 	$(DECODER_CC) $(DECODER_CC_OPT) $(DECODER_SOURCES) -o $(DECODER_OUTPUT) \
 	$(DECODER_OTHER_CC_FLAGS) $(DECODER_INCLUDES) $(DECODER_LIBPATH) \
-	-xl-mode-$(DECODER_MODE)  \
 	$(DECODER_CFLAGS) $(DECODER_LFLAGS) 
 	$(DECODER_CC_SIZE) $(DECODER_OUTPUT) 
 
@@ -175,24 +172,25 @@ $(WRAPPER_NGC_FILES): $(MHSFILE) __xps/platgen.opt \
 
 $(POSTSYN_NETLIST): $(WRAPPER_NGC_FILES)
 	@echo "Running synthesis..."
-	bash -c "cd synthesis; ./synthesis.sh; cd .."
+	bash -c "cd synthesis; ./synthesis.sh"
 
-$(SYSTEM_BIT): $(BMM_FILE) $(POSTSYN_NETLIST) __xps/xpsxflow.opt \
-               $(UCF_FILE) $(BITGEN_UT_FILE) $(FASTRUNTIME_OPT_FILE)
-	@echo "Copying Xilinx Implementation tool scripts.."
-	@cp -f $(BITGEN_UT_FILE) implementation/bitgen.ut
-	@cp -f $(FASTRUNTIME_OPT_FILE) implementation/fast_runtime.opt
-	@cp -f $(UCF_FILE) implementation/$(SYSTEM).ucf
+$(SYSTEM_BIT): $(FPGA_IMP_DEPENDENCY)
 	@echo "*********************************************"
 	@echo "Running Xilinx Implementation tools.."
 	@echo "*********************************************"
-	xflow -wd implementation -p $(DEVICE) -implement fast_runtime.opt $(SYSTEM).ngc
+	@cp -f $(UCF_FILE) implementation/$(SYSTEM).ucf
+	@cp -f $(XFLOW_OPT_FILE) implementation/xflow.opt
+	xflow -wd implementation -p $(DEVICE) -implement xflow.opt $(SYSTEM).ngc
+	@echo "*********************************************"
+	@echo "Running Bitgen.."
+	@echo "*********************************************"
+	@cp -f $(BITGEN_UT_FILE) implementation/bitgen.ut
 	cd implementation; bitgen -w -f bitgen.ut $(SYSTEM)
 
 exporttopn: 
 	@echo "You have chosen XPS for implementation tool flow."
 	@echo "Please select ProjNav as your implementation flow in Project Options."
-	@echo "In batch mode, use commad xset pnproj <isefile>."
+	@echo "In batch mode, use commad xset pnproj <nplfile>."
 
 $(DOWNLOAD_BIT): $(SYSTEM_BIT) $(BRAMINIT_ELF_FILES) __xps/bitinit.opt
 	@cp -f implementation/$(SYSTEM)_bd.bmm .
@@ -207,7 +205,7 @@ $(SYSTEM_ACE): $(DOWNLOAD_BIT) $(DECODER_OUTPUT)
 	@echo "*********************************************"
 	@echo "Creating system ace file"
 	@echo "*********************************************"
-	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(DECODER_OUTPUT)  -ace $(SYSTEM_ACE)
+	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(DECODER_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
 
 #################################################################
 # SIMULATION FLOW

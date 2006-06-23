@@ -1,0 +1,1 @@
+ -p virtex2p -lang vhdl -lp D:/XilinxXUP/lib/    -pe microblaze_0 decoder/executable.elf -s mti

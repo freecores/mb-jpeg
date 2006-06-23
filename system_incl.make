@@ -3,7 +3,7 @@
 # Project:D:\mb-jpeg\system.xmp
 #################################################################
 
-XILINX_EDK_DIR = C:/edk
+XILINX_EDK_DIR = C:/EDK
 
 SYSTEM = system
 
@@ -33,6 +33,7 @@ DECODER_OUTPUT = $(DECODER_OUTPUT_DIR)/executable.elf
 
 MICROBLAZE_BOOTLOOP = $(XILINX_EDK_DIR)/sw/lib/microblaze/mb_bootloop.elf
 PPC405_BOOTLOOP = $(XILINX_EDK_DIR)/sw/lib/ppc405/ppc_bootloop.elf
+PPC440_BOOTLOOP = $(XILINX_EDK_DIR)/sw/lib/ppc440/ppc440_bootloop.elf
 BOOTLOOP_DIR = bootloops
 
 MICROBLAZE_0_BOOTLOOP = $(BOOTLOOP_DIR)/microblaze_0.elf
@@ -100,8 +101,12 @@ UCF_FILE = data/system.ucf
 
 BMM_FILE = implementation/$(SYSTEM).bmm
 
-FASTRUNTIME_OPT_FILE = etc/fast_runtime.opt
 BITGEN_UT_FILE = etc/bitgen.ut
+
+XFLOW_OPT_FILE = etc/fast_runtime.opt
+XFLOW_DEPENDENCY = __xps/xpsxflow.opt $(XFLOW_OPT_FILE)
+
+FPGA_IMP_DEPENDENCY = $(BMM_FILE) $(POSTSYN_NETLIST) $(UCF_FILE) $(BITGEN_UT_FILE) $(XFLOW_DEPENDENCY)
 
 #################################################################
 # SOFTWARE APPLICATION DECODER
@@ -125,14 +130,16 @@ DECODER_CC_LINKER_FLAG = # -Wl,
 DECODER_LINKER_SCRIPT = 
 DECODER_LINKER_SCRIPT_FLAG = #-Wl,-T -Wl,$(DECODER_LINKER_SCRIPT) 
 DECODER_CC_DEBUG_FLAG =  -g 
+DECODER_CC_PROFILE_FLAG = # -pg
 DECODER_CC_GLOBPTR_FLAG= # -mxl-gp-opt
 DECODER_MODE = executable
 DECODER_LIBG_OPT = -$(DECODER_MODE) microblaze_0
 DECODER_CC_SOFTMUL_FLAG= -mno-xl-soft-mul 
-DECODER_CC_START_ADDR_FLAG=  # -Wl,-defsym -Wl,_TEXT_START_ADDR=
+DECODER_CC_START_ADDR_FLAG= -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50
 DECODER_CC_STACK_SIZE_FLAG=  # -Wl,-defsym -Wl,_STACK_SIZE=
+DECODER_CC_HEAP_SIZE_FLAG=  # -Wl,-defsym -Wl,_HEAP_SIZE=
 DECODER_OTHER_CC_FLAGS= $(DECODER_CC_GLOBPTR_FLAG)  \
-                  $(DECODER_CC_START_ADDR_FLAG) $(DECODER_CC_STACK_SIZE_FLAG)  \
+                  $(DECODER_CC_START_ADDR_FLAG) $(DECODER_CC_STACK_SIZE_FLAG) $(DECODER_CC_HEAP_SIZE_FLAG)  \
                   $(DECODER_CC_SOFTMUL_FLAG)  \
                   $(DECODER_CC_PREPROC_FLAG) $(DECODER_CC_ASM_FLAG) $(DECODER_CC_LINKER_FLAG)  \
-                  $(DECODER_LINKER_SCRIPT_FLAG) $(DECODER_CC_DEBUG_FLAG) 
+                  $(DECODER_LINKER_SCRIPT_FLAG) $(DECODER_CC_DEBUG_FLAG) $(DECODER_CC_PROFILE_FLAG) 
