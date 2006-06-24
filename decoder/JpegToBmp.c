@@ -46,7 +46,7 @@ int verbose = 0;
 /*		MAIN		MAIN		MAIN		   */
 /*-----------------------------------------------------------------*/
 
-int JpegToBmp(void)
+int decode(void)
 {
   char *p;
   unsigned int aux, mark;
