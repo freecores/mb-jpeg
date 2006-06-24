@@ -36,3 +36,1006 @@ rm -f _impact.cmd
 
 Done!
 
+Xilinx Platform Studio (XPS)
+Xilinx EDK 8.1 Build EDK_I.18.7
+
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+
+At Local date and time: Sat Jun 24 16:54:34 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+*********************************************
+
+
+Creating software libraries...
+*********************************************
+libgen -mhs system.mhs -p xc2vp30ff896-7 -lp D:/XilinxXUP/lib/  system.mss
+
+
+libgen
+Xilinx EDK 8.1 Build EDK_I.18.7
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+
+
+
+Command Line: libgen -mhs system.mhs -p xc2vp30ff896-7 -lp D:/XilinxXUP/lib/
+system.mss 
+
+
+
+Output Directory (-od)		: D:\mb-jpeg\
+Part (-p)			: virtex2p
+
+Software Specification file	: system.mss
+
+
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_mdm_v2_00_a/data/opb_mdm_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
+_cntlr_v2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+tcl ...
+
+
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/dcm_module_v1_00_a/data/dcm_module_v2_1_0.
+tcl ...
+
+Overriding IP level properties ...
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd line 63 - tool overriding c_family value virtex2 to virtex2p
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd line 64 - tool overriding c_instance value microblaze to microblaze_0
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:93 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:100 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
+opb_mdm (debug_module) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd
+line 42 - tool overriding c_family value virtex2 to virtex2p
+bram_block (lmb_bram) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (leds_4bit) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (dipsws_4bit) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (pushbuttons_5bit) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
+dcm_module (dcm_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd line 60 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_1) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+
+
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+
+
+Address Map for Processor microblaze_0
+  (0x00000000-0x0000ffff) dlmb_cntlr	dlmb
+  (0x00000000-0x0000ffff) ilmb_cntlr	ilmb
+  (0x40000000-0x4000ffff) PushButtons_5Bit	mb_opb
+  (0x40020000-0x4002ffff) LEDs_4Bit	mb_opb
+  (0x40040000-0x4004ffff) DIPSWs_4Bit	mb_opb
+  (0x40600000-0x4060ffff) RS232_Uart_1	mb_opb
+  (0x41400000-0x4140ffff) debug_module	mb_opb
+  (0x41800000-0x4180ffff) SysACE_CompactFlash	mb_opb
+  (0x70000000-0x7000ffff) data_bram_if_cntlr_0	dlmb
+  (0x70010000-0x7001ffff) data_bram_if_cntlr_1	dlmb
+
+Check platform configuration ...
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs line 55 - 2 master(s) : 6 slave(s)
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs line 81 - 1 master(s) : 1 slave(s)
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs line 89 - 1 master(s) : 3 slave(s)
+
+Check port drivers...
+
+
+WARNING:MDT - dcm_0_lock (LOCKED) - D:\mb-jpeg\system.mhs line 208 - floating
+   connection!
+
+Check platform address map ...
+
+Overriding system level properties ...
+opb_v20 (mb_opb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd
+line 39 - tool overriding c_num_masters value 4 to 2
+opb_v20 (mb_opb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd
+line 40 - tool overriding c_num_slaves value 4 to 6
+lmb_v10 (ilmb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd
+line 39 - tool overriding c_lmb_num_slaves value 4 to 1
+lmb_v10 (dlmb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd
+line 39 - tool overriding c_lmb_num_slaves value 4 to 3
+lmb_bram_if_cntlr (dlmb_cntlr) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+lmb_bram_if_cntlr (ilmb_cntlr) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+bram_block (lmb_bram) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 38 - tool overriding c_memsize value 2048 to 0x10000
+bram_block (data_bram_0) - D:\mb-jpeg\system.mhs line 214 - tool overriding
+c_memsize value 16384 to 0x10000
+lmb_bram_if_cntlr (data_bram_if_cntlr_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+bram_block (data_bram_1) - D:\mb-jpeg\system.mhs line 230 - tool overriding
+c_memsize value 16384 to 0x10000
+lmb_bram_if_cntlr (data_bram_if_cntlr_1) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+
+Performing System level DRCs on properties...
+
+
+INFO:MDT - List of peripherals addressable from processor instance microblaze_0
+   : 
+  - dlmb
+WARNING:MDT - D:\mb-jpeg\system.mhs line 89 - No Driver Found for instance dlmb.
+   To avoid seeing this warning, assign the appropriate driver or driver
+   "generic 1.00.a " to instance dlmb
+
+  - dlmb_cntlr
+  - data_bram_if_cntlr_0
+  - data_bram_if_cntlr_1
+  - ilmb
+WARNING:MDT - D:\mb-jpeg\system.mhs line 81 - No Driver Found for instance ilmb.
+   To avoid seeing this warning, assign the appropriate driver or driver
+   "generic 1.00.a " to instance ilmb
+
+  - ilmb_cntlr
+  - mb_opb
+  - debug_module
+  - RS232_Uart_1
+  - SysACE_CompactFlash
+  - LEDs_4Bit
+  - DIPSWs_4Bit
+  - PushButtons_5Bit
+
+Building Directory Structure for microblaze_0
+
+
+
+Generating platform libraries and device drivers ...
+
+Running CopyFiles ...
+
+Copying files for os standalone_v1_00_a from
+C:\EDK\sw\lib\bsp\standalone_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\standalone_v1_00_a\ ...
+
+
+
+Copying files for driver opbarb_v1_02_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\opbarb_v1_02_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\opbarb_v1_02_a\ ...
+
+
+
+Copying files for driver uartlite_v1_00_b from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\uartlite_v1_00_b\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\uartlite_v1_00_b\ ...
+
+
+
+Copying files for driver sysace_v1_00_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\sysace_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\sysace_v1_00_a\ ...
+
+
+
+Copying files for driver gpio_v2_00_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\gpio_v2_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\gpio_v2_00_a\ ...
+
+
+
+Copying files for driver cpu_v1_00_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\cpu_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\cpu_v1_00_a\ ...
+
+
+
+Copying files for library xilfatfs_v1_00_a from
+C:\EDK\sw\lib\sw_services\xilfatfs_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\xilfatfs_v1_00_a\ ...
+
+
+
+Running DRCs for OSes, Drivers and Libraries ... 
+
+Running generate for OS'es, Drivers and Libraries ... 
+
+
+Copying Library Files ...
+
+
+
+Running post_generate for OS'es, Drivers and Libraries ... 
+
+
+
+Running make for Drivers and Libraries ... 
+
+Configuring make for target include using:
+
+make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul  -O2 -c" "EXTRA_COMPILER_FLAGS=-g" 
+
+
+
+Configuring make for target libs using:
+
+make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul  -O2 -c" "EXTRA_COMPILER_FLAGS=-g" 
+
+
+Compiling common
+
+
+Compiling ipif
+
+
+Compiling  microblaze_disable_dcache.s
+
+
+Compiling  microblaze_disable_exceptions.s
+
+
+Compiling  microblaze_disable_icache.s
+
+
+Compiling  microblaze_disable_interrupts.s
+
+
+Compiling  microblaze_enable_dcache.s
+
+
+Compiling  microblaze_enable_exceptions.s
+
+
+Compiling  microblaze_enable_icache.s
+
+
+Compiling  microblaze_enable_interrupts.s
+
+
+Compiling  microblaze_init_dcache_range.s
+
+
+Compiling  microblaze_init_icache_range.s
+
+
+Compiling  microblaze_update_dcache.s
+
+
+Compiling  microblaze_update_icache.s
+
+
+Compiling  _exit.c
+
+
+Compiling  errno.c
+
+
+Compiling  fcntl.c
+
+
+Compiling  inbyte.c
+
+
+Compiling  microblaze_exception_handler.c
+
+
+Compiling  microblaze_exceptions_g.c
+
+
+Compiling  microblaze_interrupt_handler.c
+
+
+Compiling  microblaze_interrupts_g.c
+
+
+Compiling  outbyte.c
+
+
+Compiling  hw_exception_handler.S
+
+
+Compiling  src/xilfatfs_alloc.c
+
+
+Compiling  src/xilfatfs_close.c
+
+
+Compiling  src/xilfatfs_directory.c
+
+
+Compiling  src/xilfatfs_fat.c
+
+
+Compiling  src/xilfatfs_fat16.c
+
+
+Compiling  src/xilfatfs_fat32.c
+
+
+Compiling  src/xilfatfs_filespec.c
+
+
+Compiling  src/xilfatfs_filestatus.c
+
+
+Compiling  src/xilfatfs_open.c
+
+
+Compiling  src/xilfatfs_part.c
+
+
+Compiling  src/xilfatfs_read.c
+
+
+Compiling  src/xilfatfs_wd.c
+
+
+Compiling  src/xilfatfs_stats.c
+
+
+Compiling  src/xilfatfs_bufcache.c
+
+
+Compiling  src/xilfatfs_sysace.c
+
+
+make clean
+
+
+Compiling opbarb
+
+
+Compiling uartlite
+
+
+Compiling sysace
+
+
+Compiling gpio
+
+
+Compiling cpu
+
+
+
+Libraries generated in D:\mb-jpeg\microblaze_0\lib\ directory
+
+Running execs_generate for OS'es, Drivers and Libraries ... 
+
+LibGen Done. 
+
+
+mb-gcc -O2 decoder/JpegToBmp.c decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+  
+
+
+decoder/JpegToBmp.c: In function `decode':
+decoder/JpegToBmp.c:56: error: `file1' undeclared (first use in this function)
+decoder/JpegToBmp.c:56: error: (Each undeclared identifier is reported only once
+decoder/JpegToBmp.c:56: error: for each function it appears in.)
+decoder/JpegToBmp.c:243: error: `file2' undeclared (first use in this function)
+decoder/JpegToBmp.c:255: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:256: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:261: error: redefinition of 'j'
+decoder/JpegToBmp.c:256: error: previous definition of 'j' was here
+decoder/JpegToBmp.c:261: error: 'for' loop initial declaration used outside C99 mode
+
+
+decoder/decoder.c:2:21: mb-jpeg.h: No such file or directory
+decoder/decoder.c: In function `main':
+decoder/decoder.c:8: error: `SYSACE_FILE' undeclared (first use in this function)
+decoder/decoder.c:8: error: (Each undeclared identifier is reported only once
+decoder/decoder.c:8: error: for each function it appears in.)
+decoder/decoder.c:8: error: `jpgfile' undeclared (first use in this function)
+decoder/decoder.c:13: error: `JPG_MAXSIZE' undeclared (first use in this function)
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+
+At Local date and time: Sat Jun 24 16:56:11 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+mb-gcc -O2 decoder/JpegToBmp.c decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+  
+
+
+decoder/JpegToBmp.c: In function `decode':
+decoder/JpegToBmp.c:56: error: `file1' undeclared (first use in this function)
+decoder/JpegToBmp.c:56: error: (Each undeclared identifier is reported only once
+decoder/JpegToBmp.c:56: error: for each function it appears in.)
+decoder/JpegToBmp.c:243: error: `file2' undeclared (first use in this function)
+decoder/JpegToBmp.c:255: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:256: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:261: error: redefinition of 'j'
+decoder/JpegToBmp.c:256: error: previous definition of 'j' was here
+decoder/JpegToBmp.c:261: error: 'for' loop initial declaration used outside C99 mode
+
+
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+
+At Local date and time: Sat Jun 24 16:56:34 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+mb-gcc -O2 decoder/JpegToBmp.c decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+  
+
+
+decoder/JpegToBmp.c: In function `decode':
+decoder/JpegToBmp.c:56: error: `file1' undeclared (first use in this function)
+decoder/JpegToBmp.c:56: error: (Each undeclared identifier is reported only once
+decoder/JpegToBmp.c:56: error: for each function it appears in.)
+decoder/JpegToBmp.c:243: error: `file2' undeclared (first use in this function)
+decoder/JpegToBmp.c:255: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:256: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:261: error: redefinition of 'j'
+decoder/JpegToBmp.c:256: error: previous definition of 'j' was here
+decoder/JpegToBmp.c:261: error: 'for' loop initial declaration used outside C99 mode
+
+
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+
+At Local date and time: Sat Jun 24 17:03:24 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+mb-gcc -O2 decoder/JpegToBmp.c decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+  
+
+
+decoder/JpegToBmp.c: In function `decode':
+decoder/JpegToBmp.c:56: error: `file1' undeclared (first use in this function)
+decoder/JpegToBmp.c:56: error: (Each undeclared identifier is reported only once
+decoder/JpegToBmp.c:56: error: for each function it appears in.)
+decoder/JpegToBmp.c:243: error: `file2' undeclared (first use in this function)
+decoder/JpegToBmp.c:255: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:256: error: 'for' loop initial declaration used outside C99 mode
+decoder/JpegToBmp.c:261: error: redefinition of 'j'
+decoder/JpegToBmp.c:256: error: previous definition of 'j' was here
+decoder/JpegToBmp.c:261: error: 'for' loop initial declaration used outside C99 mode
+
+
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+
+At Local date and time: Sat Jun 24 17:03:43 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+mb-gcc -O2 decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+  
+
+
+/cygdrive/c/DOCUME~1/S041945/LOCALS~1/Temp/cc0qdFfE.o: In function `main':
+/cygdrive/d/mb-jpeg/decoder/decoder.c:23: undefined reference to `decode'
+/cygdrive/d/mb-jpeg/decoder/decoder.c:37: undefined reference to `sysace_fwrite'
+
+
+collect2: ld returned 1 exit status
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+
+ERROR:MDT - D:\mb-jpeg\system.mss line 101	PARAMETER name is not specified
+
+At Local date and time: Sat Jun 24 17:05:37 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make libs; exit;" started...
+
+*********************************************
+Creating software libraries...
+
+
+*********************************************
+libgen -mhs system.mhs -p xc2vp30ff896-7 -lp D:/XilinxXUP/lib/  system.mss
+
+
+libgen
+Xilinx EDK 8.1 Build EDK_I.18.7
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+
+
+
+Command Line: libgen -mhs system.mhs -p xc2vp30ff896-7 -lp D:/XilinxXUP/lib/
+system.mss 
+
+
+
+Output Directory (-od)		: D:\mb-jpeg\
+Part (-p)			: virtex2p
+
+Software Specification file	: system.mss
+
+
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_mdm_v2_00_a/data/opb_mdm_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
+_cntlr_v2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+tcl ...
+
+
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/dcm_module_v1_00_a/data/dcm_module_v2_1_0.
+tcl ...
+
+Overriding IP level properties ...
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd line 63 - tool overriding c_family value virtex2 to virtex2p
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd line 64 - tool overriding c_instance value microblaze to microblaze_0
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:93 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:100 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
+opb_mdm (debug_module) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd
+line 42 - tool overriding c_family value virtex2 to virtex2p
+bram_block (lmb_bram) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (leds_4bit) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (dipsws_4bit) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
+opb_gpio (pushbuttons_5bit) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
+dcm_module (dcm_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd line 60 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
+bram_block (data_bram_1) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+
+
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+
+
+Address Map for Processor microblaze_0
+  (0x00000000-0x0000ffff) dlmb_cntlr	dlmb
+  (0x00000000-0x0000ffff) ilmb_cntlr	ilmb
+  (0x40000000-0x4000ffff) PushButtons_5Bit	mb_opb
+  (0x40020000-0x4002ffff) LEDs_4Bit	mb_opb
+  (0x40040000-0x4004ffff) DIPSWs_4Bit	mb_opb
+  (0x40600000-0x4060ffff) RS232_Uart_1	mb_opb
+  (0x41400000-0x4140ffff) debug_module	mb_opb
+  (0x41800000-0x4180ffff) SysACE_CompactFlash	mb_opb
+  (0x70000000-0x7000ffff) data_bram_if_cntlr_0	dlmb
+  (0x70010000-0x7001ffff) data_bram_if_cntlr_1	dlmb
+
+Check platform configuration ...
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs line 55 - 2 master(s) : 6 slave(s)
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs line 81 - 1 master(s) : 1 slave(s)
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs line 89 - 1 master(s) : 3 slave(s)
+
+Check port drivers...
+
+
+WARNING:MDT - dcm_0_lock (LOCKED) - D:\mb-jpeg\system.mhs line 208 - floating
+   connection!
+
+Check platform address map ...
+
+Overriding system level properties ...
+opb_v20 (mb_opb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd
+line 39 - tool overriding c_num_masters value 4 to 2
+opb_v20 (mb_opb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd
+line 40 - tool overriding c_num_slaves value 4 to 6
+lmb_v10 (ilmb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd
+line 39 - tool overriding c_lmb_num_slaves value 4 to 1
+lmb_v10 (dlmb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd
+line 39 - tool overriding c_lmb_num_slaves value 4 to 3
+lmb_bram_if_cntlr (dlmb_cntlr) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+lmb_bram_if_cntlr (ilmb_cntlr) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+bram_block (lmb_bram) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 38 - tool overriding c_memsize value 2048 to 0x10000
+bram_block (data_bram_0) - D:\mb-jpeg\system.mhs line 214 - tool overriding
+c_memsize value 16384 to 0x10000
+lmb_bram_if_cntlr (data_bram_if_cntlr_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+bram_block (data_bram_1) - D:\mb-jpeg\system.mhs line 230 - tool overriding
+c_memsize value 16384 to 0x10000
+lmb_bram_if_cntlr (data_bram_if_cntlr_1) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+
+Performing System level DRCs on properties...
+
+
+INFO:MDT - List of peripherals addressable from processor instance microblaze_0
+   : 
+  - dlmb
+WARNING:MDT - D:\mb-jpeg\system.mhs line 89 - No Driver Found for instance dlmb.
+   To avoid seeing this warning, assign the appropriate driver or driver
+   "generic 1.00.a " to instance dlmb
+
+  - dlmb_cntlr
+  - data_bram_if_cntlr_0
+  - data_bram_if_cntlr_1
+  - ilmb
+WARNING:MDT - D:\mb-jpeg\system.mhs line 81 - No Driver Found for instance ilmb.
+   To avoid seeing this warning, assign the appropriate driver or driver
+   "generic 1.00.a " to instance ilmb
+
+  - ilmb_cntlr
+  - mb_opb
+  - debug_module
+  - RS232_Uart_1
+  - SysACE_CompactFlash
+  - LEDs_4Bit
+  - DIPSWs_4Bit
+  - PushButtons_5Bit
+
+Building Directory Structure for microblaze_0
+
+
+
+Generating platform libraries and device drivers ...
+
+Running CopyFiles ...
+
+
+
+Copying files for os standalone_v1_00_a from
+C:\EDK\sw\lib\bsp\standalone_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\standalone_v1_00_a\ ...
+
+
+
+Copying files for driver opbarb_v1_02_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\opbarb_v1_02_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\opbarb_v1_02_a\ ...
+
+
+
+Copying files for driver uartlite_v1_00_b from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\uartlite_v1_00_b\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\uartlite_v1_00_b\ ...
+
+
+
+Copying files for driver sysace_v1_00_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\sysace_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\sysace_v1_00_a\ ...
+
+
+
+Copying files for driver gpio_v2_00_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\gpio_v2_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\gpio_v2_00_a\ ...
+
+
+
+Copying files for driver cpu_v1_00_a from
+C:\EDK\sw\XilinxProcessorIPLib\drivers\cpu_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\cpu_v1_00_a\ ...
+
+
+
+Copying files for library xilfatfs_v1_00_a from
+C:\EDK\sw\lib\sw_services\xilfatfs_v1_00_a\src\ to
+D:\mb-jpeg\microblaze_0\libsrc\xilfatfs_v1_00_a\ ...
+
+
+
+Running DRCs for OSes, Drivers and Libraries ... 
+
+Running generate for OS'es, Drivers and Libraries ... 
+
+
+Copying Library Files ...
+
+
+
+Running post_generate for OS'es, Drivers and Libraries ... 
+
+
+
+Running make for Drivers and Libraries ... 
+
+Configuring make for target include using:
+
+make -s include "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul  -O2 -c" "EXTRA_COMPILER_FLAGS=-g" 
+
+
+
+Configuring make for target libs using:
+
+make -s libs "COMPILER=mb-gcc" "ARCHIVER=mb-ar"
+"COMPILER_FLAGS=-mno-xl-soft-mul  -O2 -c" "EXTRA_COMPILER_FLAGS=-g" 
+
+
+Compiling common
+
+
+Compiling ipif
+
+
+Compiling  microblaze_disable_dcache.s
+
+
+Compiling  microblaze_disable_exceptions.s
+
+
+Compiling  microblaze_disable_icache.s
+
+
+Compiling  microblaze_disable_interrupts.s
+
+
+Compiling  microblaze_enable_dcache.s
+
+
+Compiling  microblaze_enable_exceptions.s
+
+
+Compiling  microblaze_enable_icache.s
+
+
+Compiling  microblaze_enable_interrupts.s
+
+
+Compiling  microblaze_init_dcache_range.s
+
+
+Compiling  microblaze_init_icache_range.s
+
+
+Compiling  microblaze_update_dcache.s
+
+
+Compiling  microblaze_update_icache.s
+
+
+Compiling  _exit.c
+
+
+Compiling  errno.c
+
+
+Compiling  fcntl.c
+
+
+Compiling  inbyte.c
+
+
+Compiling  microblaze_exception_handler.c
+
+
+Compiling  microblaze_exceptions_g.c
+
+
+Compiling  microblaze_interrupt_handler.c
+
+
+Compiling  microblaze_interrupts_g.c
+
+
+Compiling  outbyte.c
+
+
+Compiling  hw_exception_handler.S
+
+
+Compiling  src/xilfatfs_alloc.c
+
+
+Compiling  src/xilfatfs_close.c
+
+
+Compiling  src/xilfatfs_directory.c
+
+
+Compiling  src/xilfatfs_fat.c
+
+
+Compiling  src/xilfatfs_fat16.c
+
+
+Compiling  src/xilfatfs_fat32.c
+
+
+Compiling  src/xilfatfs_filespec.c
+
+
+Compiling  src/xilfatfs_filestatus.c
+
+
+Compiling  src/xilfatfs_open.c
+
+
+Compiling  src/xilfatfs_part.c
+
+
+Compiling  src/xilfatfs_read.c
+
+
+Compiling  src/xilfatfs_wd.c
+
+
+Compiling  src/xilfatfs_stats.c
+
+
+Compiling  src/xilfatfs_bufcache.c
+
+
+Compiling  src/xilfatfs_write.c
+
+
+Compiling  src/xilfatfs_sysace.c
+
+
+make clean
+
+
+Compiling opbarb
+
+
+Compiling uartlite
+
+
+Compiling sysace
+
+
+Compiling gpio
+
+
+Compiling cpu
+
+
+
+Libraries generated in D:\mb-jpeg\microblaze_0\lib\ directory
+
+Running execs_generate for OS'es, Drivers and Libraries ... 
+
+LibGen Done. 
+
+
+
+
+Done!
+
+At Local date and time: Sat Jun 24 17:06:13 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+mb-gcc -O2 decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+  
+
+
+/cygdrive/c/DOCUME~1/S041945/LOCALS~1/Temp/ccSGoXVX.o: In function `main':
+/cygdrive/d/mb-jpeg/decoder/decoder.c:23: undefined reference to `decode'
+collect2: ld returned 1 exit status
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+

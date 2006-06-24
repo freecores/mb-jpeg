@@ -37,6 +37,7 @@ XmdStub: 0
 SwProj: decoder
 Processor: microblaze_0
 Executable: decoder/executable.elf
+Source: decoder/decoder.c
 Source: decoder/JpegToBmp.c
 DefaultInit: executable
 InitBram: 1

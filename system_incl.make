@@ -112,7 +112,7 @@ FPGA_IMP_DEPENDENCY = $(BMM_FILE) $(POSTSYN_NETLIST) $(UCF_FILE) $(BITGEN_UT_FIL
 # SOFTWARE APPLICATION DECODER
 #################################################################
 
-DECODER_SOURCES = decoder/JpegToBmp.c 
+DECODER_SOURCES = decoder/decoder.c decoder/JpegToBmp.c 
 
 DECODER_HEADERS = 
 

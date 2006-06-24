@@ -1,5 +1,5 @@
 microblaze_0
-DECODER_SOURCES = decoder/JpegToBmp.c 
+DECODER_SOURCES = decoder/decoder.c decoder/JpegToBmp.c 
 DECODER_HEADERS = 
 DECODER_CC = mb-gcc
 DECODER_CC_SIZE = mb-size
