@@ -38,8 +38,7 @@ SwProj: decoder
 Processor: microblaze_0
 Executable: decoder/executable.elf
 Source: decoder/decoder.c
-Source: decoder/JpegToBmp.c
-DefaultInit: executable
+DefaultInit: EXECUTABLE
 InitBram: 1
 Active: 1
 CompilerOptLevel: 2
@@ -52,4 +51,4 @@ ProgStart: 0x50
 StackSize: 
 HeapSize: 
 LinkerScript: 
-ProgCCFlags: 
+ProgCCFlags: -D__MICROBLAZE -D__XUPV2P

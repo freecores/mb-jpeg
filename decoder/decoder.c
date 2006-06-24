@@ -1,10 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "mb-jpeg.h"
 
 unsigned char* jpgimage;
 unsigned long jpgsize;
 unsigned char* bmpimage;
-unsigned long bmpsize;
+unsigned long mpsize;
 
 int main() {
   SYSACE_FILE *jpgfile;

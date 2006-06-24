@@ -1039,3 +1039,26 @@ make: *** [decoder/executable.elf] Error 1
 
 Done!
 
+Xilinx Platform Studio (XPS)
+Xilinx EDK 8.1 Build EDK_I.18.7
+
+Copyright (c) 1995-2006 Xilinx, Inc.  All rights reserved.
+
+At Local date and time: Sat Jun 24 17:38:27 2006
+ xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" started...
+
+mb-gcc -O2 decoder/decoder.c  -o decoder/executable.elf \
+ -Wl,-defsym -Wl,_TEXT_START_ADDR=0x50   -mno-xl-soft-mul      -g    -I./microblaze_0/include/  -L./microblaze_0/lib/  \
+-D__MICROBLAZE -D__XUPV2P  
+
+
+/cygdrive/c/DOCUME~1/S041945/LOCALS~1/Temp/ccmi13bU.o: In function `main':
+/cygdrive/d/mb-jpeg/decoder/decoder.c:31: undefined reference to `decode'
+collect2: ld returned 1 exit status
+make: *** [decoder/executable.elf] Error 1
+
+
+
+
+Done!
+

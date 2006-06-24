@@ -112,14 +112,14 @@ FPGA_IMP_DEPENDENCY = $(BMM_FILE) $(POSTSYN_NETLIST) $(UCF_FILE) $(BITGEN_UT_FIL
 # SOFTWARE APPLICATION DECODER
 #################################################################
 
-DECODER_SOURCES = decoder/decoder.c decoder/JpegToBmp.c 
+DECODER_SOURCES = decoder/decoder.c 
 
 DECODER_HEADERS = 
 
 DECODER_CC = mb-gcc
 DECODER_CC_SIZE = mb-size
 DECODER_CC_OPT = -O2
-DECODER_CFLAGS = 
+DECODER_CFLAGS = -D__MICROBLAZE -D__XUPV2P
 DECODER_CC_SEARCH = # -B
 DECODER_LIBPATH = -L./microblaze_0/lib/ # -L
 DECODER_INCLUDES = -I./microblaze_0/include/ # -I

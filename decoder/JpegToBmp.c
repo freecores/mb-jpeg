@@ -46,6 +46,9 @@ int verbose = 0;
 /*		MAIN		MAIN		MAIN		   */
 /*-----------------------------------------------------------------*/
 
+#define file1 "image01.jpg" 
+#define file2 "image01.bmp"
+
 int decode(void)
 {
   char *p;
@@ -55,7 +58,7 @@ int decode(void)
 
   fi = fopen(file1,"rb");
   if (fi == NULL) {
-    MessageBox(0,"unable to open the file",file1,0);
+    printf("unable to open the file\r\n");
     return 0;
   }
 
