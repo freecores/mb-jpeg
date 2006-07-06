@@ -1,1 +1,1 @@
-    -pe microblaze_0 decoder/executable.elf
+    -pe microblaze_0 Testbench1/executable.elf

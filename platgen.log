@@ -1,4 +1,4 @@
-Release 7.1.02i - platgen EDK_H.12.5.1
+Release 8.1i - platgen EDK_I.18.7
 Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
 
 Command Line: platgen -p xc2vp30ff896-7 -lang vhdl -lp D:/XilinxXUP/lib/ -st xst
@@ -8,59 +8,77 @@ Parse system.mhs ...
 
 Read MPD definitions ...
 Sourcing tcl file
-C:/edk/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
+C:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
 tcl ...
 Sourcing tcl file
-C:/edk/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_mdm_v2_00_a/data/opb_mdm_v2_1_0.tcl
 ...
 Sourcing tcl file
-C:/edk/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
 _cntlr_v2_1_0.tcl ...
 Sourcing tcl file
-C:/edk/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/dcm_module_v1_00_a/data/dcm_module_v2_1_0.
 tcl ...
 
 Overriding IP level properties ...
 microblaze (microblaze_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
-mpd:60 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd line 63 - tool overriding c_family value virtex2 to virtex2p
 microblaze (microblaze_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
-mpd:61 - tool overriding c_instance value microblaze to microblaze_0
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd line 64 - tool overriding c_instance value microblaze to microblaze_0
 microblaze (microblaze_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
-mpd:90 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:93 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
 microblaze (microblaze_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
-mpd:97 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:100 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
 opb_mdm (debug_module) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd:38
-- tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd
+line 42 - tool overriding c_family value virtex2 to virtex2p
 bram_block (lmb_bram) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
-mpd:39 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
 opb_gpio (leds_4bit) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
-38 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
 opb_gpio (dipsws_4bit) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
-38 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
 opb_gpio (pushbuttons_5bit) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd:
-38 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_gpio_v3_01_b\data\opb_gpio_v2_1_0.mpd
+line 41 - tool overriding c_family value virtex2 to virtex2p
 dcm_module (dcm_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
-mpd:56 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd line 60 - tool overriding c_family value virtex2 to virtex2p
 bram_block (data_bram_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
-mpd:39 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
 bram_block (data_bram_1) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
-mpd:39 - tool overriding c_family value virtex2 to virtex2p
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 42 - tool overriding c_family value virtex2 to virtex2p
 
 Performing IP level DRCs on properties...
 
 Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/bram_if_cntlr_v1_00_b/data/bram_if_cntlr_v
+2_1_0.tcl ...
 Address Map for Processor microblaze_0
   (0x00000000-0x0000ffff) dlmb_cntlr	dlmb
   (0x00000000-0x0000ffff) ilmb_cntlr	ilmb
@@ -74,46 +92,52 @@ Address Map for Processor microblaze_0
   (0x70010000-0x7001ffff) data_bram_if_cntlr_1	dlmb
 
 Check platform configuration ...
-opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs:55 - 2 master(s) : 6 slave(s)
-lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs:81 - 1 master(s) : 1 slave(s)
-lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs:89 - 1 master(s) : 3 slave(s)
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs line 55 - 2 master(s) : 6 slave(s)
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs line 81 - 1 master(s) : 1 slave(s)
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs line 89 - 1 master(s) : 3 slave(s)
 
 Check port drivers...
+WARNING:MDT - dcm_0_lock (LOCKED) - D:\mb-jpeg\system.mhs line 208 - floating
+   connection!
 
 Check platform address map ...
 
 Overriding system level properties ...
 opb_v20 (mb_opb) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:36
-- tool overriding c_num_masters value 4 to 2
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd
+line 39 - tool overriding c_num_masters value 4 to 2
 opb_v20 (mb_opb) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:37
-- tool overriding c_num_slaves value 4 to 6
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd
+line 40 - tool overriding c_num_slaves value 4 to 6
 lmb_v10 (ilmb) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
-- tool overriding c_lmb_num_slaves value 4 to 1
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd
+line 39 - tool overriding c_lmb_num_slaves value 4 to 1
 lmb_v10 (dlmb) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
-- tool overriding c_lmb_num_slaves value 4 to 3
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd
+line 39 - tool overriding c_lmb_num_slaves value 4 to 3
 lmb_bram_if_cntlr (dlmb_cntlr) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
-_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
 lmb_bram_if_cntlr (ilmb_cntlr) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
-_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
 bram_block (lmb_bram) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
-mpd:35 - tool overriding c_memsize value 2048 to 65536
-bram_block (data_bram_0) - D:\mb-jpeg\system.mhs:214 - tool overriding c_memsize
-value 16384 to 65536
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd line 38 - tool overriding c_memsize value 2048 to 0x10000
+bram_block (data_bram_0) - D:\mb-jpeg\system.mhs line 214 - tool overriding
+c_memsize value 16384 to 0x10000
 lmb_bram_if_cntlr (data_bram_if_cntlr_0) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
-_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
-bram_block (data_bram_1) - D:\mb-jpeg\system.mhs:230 - tool overriding c_memsize
-value 16384 to 65536
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
+bram_block (data_bram_1) - D:\mb-jpeg\system.mhs line 230 - tool overriding
+c_memsize value 16384 to 0x10000
 lmb_bram_if_cntlr (data_bram_if_cntlr_1) -
-C:\edk\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
-_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x70c70000
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd line 45 - tool overriding c_mask value 0x00800000 to
+0x70c70000
 
 Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
 
@@ -140,10 +164,10 @@ bram_block (data_bram_1) - D:\mb-jpeg\system.mhs:227 - elaborating IP
 Writing HDL for elaborated instances ...
 
 Inserting wrapper level ...
-Completion time: 4.00 seconds
+Completion time: 3.00 seconds
 
 Constructing platform-level signal connectivity ...
-Completion time: 2.00 seconds
+Completion time: 3.00 seconds
 
 Writing (top-level) BMM ...
 Writing BMM - D:\mb-jpeg\implementation\system.bmm
@@ -191,4 +215,4 @@ data_bram_if_cntlr_1_wrapper (data_bram_if_cntlr_1) - D:\mb-jpeg\system.mhs:234
 Running NGCBUILD ...
 
 Rebuilding cache ...
-Total run time: 300.00 seconds
+Total run time: 368.00 seconds

@@ -131,21 +131,21 @@ microblaze_0_libsclean:
 $(MICROBLAZE_0_XMDSTUB): $(LIBRARIES)
 
 #################################################################
-# SOFTWARE APPLICATION DECODER
+# SOFTWARE APPLICATION TESTBENCH1
 #################################################################
 
-decoder_program: $(DECODER_OUTPUT) 
+Testbench1_program: $(TESTBENCH1_OUTPUT) 
 
-$(DECODER_OUTPUT) : $(DECODER_SOURCES) $(DECODER_HEADERS) $(DECODER_LINKER_SCRIPT) \
-                    $(LIBRARIES) __xps/decoder_compiler.opt
-	@mkdir -p $(DECODER_OUTPUT_DIR) 
-	$(DECODER_CC) $(DECODER_CC_OPT) $(DECODER_SOURCES) -o $(DECODER_OUTPUT) \
-	$(DECODER_OTHER_CC_FLAGS) $(DECODER_INCLUDES) $(DECODER_LIBPATH) \
-	$(DECODER_CFLAGS) $(DECODER_LFLAGS) 
-	$(DECODER_CC_SIZE) $(DECODER_OUTPUT) 
+$(TESTBENCH1_OUTPUT) : $(TESTBENCH1_SOURCES) $(TESTBENCH1_HEADERS) $(TESTBENCH1_LINKER_SCRIPT) \
+                    $(LIBRARIES) __xps/testbench1_compiler.opt
+	@mkdir -p $(TESTBENCH1_OUTPUT_DIR) 
+	$(TESTBENCH1_CC) $(TESTBENCH1_CC_OPT) $(TESTBENCH1_SOURCES) -o $(TESTBENCH1_OUTPUT) \
+	$(TESTBENCH1_OTHER_CC_FLAGS) $(TESTBENCH1_INCLUDES) $(TESTBENCH1_LIBPATH) \
+	$(TESTBENCH1_CFLAGS) $(TESTBENCH1_LFLAGS) 
+	$(TESTBENCH1_CC_SIZE) $(TESTBENCH1_OUTPUT) 
 
-decoder_programclean:
-	rm -f $(DECODER_OUTPUT) 
+Testbench1_programclean:
+	rm -f $(TESTBENCH1_OUTPUT) 
 
 #################################################################
 # BOOTLOOP ELF FILES
@@ -201,11 +201,11 @@ $(DOWNLOAD_BIT): $(SYSTEM_BIT) $(BRAMINIT_ELF_FILES) __xps/bitinit.opt
 	-bt $(SYSTEM_BIT) -o $(DOWNLOAD_BIT)
 	@rm -f $(SYSTEM)_bd.bmm
 
-$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(DECODER_OUTPUT) 
+$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(TESTBENCH1_OUTPUT) 
 	@echo "*********************************************"
 	@echo "Creating system ace file"
 	@echo "*********************************************"
-	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(DECODER_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
+	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(TESTBENCH1_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
 
 #################################################################
 # SIMULATION FLOW

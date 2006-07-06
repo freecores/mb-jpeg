@@ -39,8 +39,8 @@ Processor: microblaze_0
 Executable: decoder/executable.elf
 Source: decoder/decoder.c
 DefaultInit: EXECUTABLE
-InitBram: 1
-Active: 1
+InitBram: 0
+Active: 0
 CompilerOptLevel: 2
 GlobPtrOpt: 0
 DebugSym: 1
@@ -52,3 +52,22 @@ StackSize:
 HeapSize: 
 LinkerScript: 
 ProgCCFlags: -D__MICROBLAZE -D__XUPV2P
+SwProj: Testbench1
+Processor: microblaze_0
+Executable: Testbench1/executable.elf
+Source: testbench1/tb1.c
+Header: testbench1/tb1.h
+DefaultInit: executable
+InitBram: 1
+Active: 1
+CompilerOptLevel: 2
+GlobPtrOpt: 0
+DebugSym: 1
+ProfileFlag: 0
+AsmOpt: 
+LinkOpt: 
+ProgStart: 
+StackSize: 
+HeapSize: 
+LinkerScript: 
+ProgCCFlags: 
