@@ -11,12 +11,15 @@ typedef union {		/* block of frequency-space values */
 
 #include <stdio.h>
 #include <stdlib.h>
+#ifndef __MICROBLAZE
 #include <windows.h>
+#endif
 #include "zzq.h"
 #include "io.h"
 #include "huffman.h"
 #include "dct.h"
 #pragma hdrstop
+
 
 //---------------------------------------------------------------------------
 
@@ -42,7 +45,9 @@ int main(int argc, char* argv[])
   FILE *infile, *outfile;
   INFOHEADER *bmpheader;
   JPEGHEADER *jpegheader;
+#ifndef __MICROBLAZE
   LARGE_INTEGER st, en;
+#endif  
   unsigned int col, cols, row, rows, remaining,component;
   unsigned char amount_remaining, Ydcvalue, Cbdcvalue, Crdcvalue ;
 
@@ -82,7 +87,9 @@ int main(int argc, char* argv[])
   }
   else { //start codec
           outfile = fopen(argv[2],"wb");
+#ifndef __MICROBLAZE		  
           QueryPerformanceCounter(&st);
+#endif			 
           if(encode) { //encode infile to JPEG
                 if (getbmpheader(infile,bmpheader)) { //File is a valid BMP
                         printf("\nImage width: %d pixels", bmpheader->width);
@@ -150,8 +157,10 @@ int main(int argc, char* argv[])
          fprintf(outfile,"0x%x, ",header[i]);
         fclose(outfile);
         fclose(infile); */
+#ifndef __MICROBLAZE		  
         QueryPerformanceCounter(&en);
         printf("\nExecution time: %f seconds",(double)(en.QuadPart-st.QuadPart)/1000000);
+#endif		  
         //      free(bmpheader);
   }
   printf("\n\nHit ENTER to close this window.");
