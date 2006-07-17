@@ -148,6 +148,23 @@ Testbench1_programclean:
 	rm -f $(TESTBENCH1_OUTPUT) 
 
 #################################################################
+# SOFTWARE APPLICATION ENCODER
+#################################################################
+
+Encoder_program: $(ENCODER_OUTPUT) 
+
+$(ENCODER_OUTPUT) : $(ENCODER_SOURCES) $(ENCODER_HEADERS) $(ENCODER_LINKER_SCRIPT) \
+                    $(LIBRARIES) __xps/encoder_compiler.opt
+	@mkdir -p $(ENCODER_OUTPUT_DIR) 
+	$(ENCODER_CC) $(ENCODER_CC_OPT) $(ENCODER_SOURCES) -o $(ENCODER_OUTPUT) \
+	$(ENCODER_OTHER_CC_FLAGS) $(ENCODER_INCLUDES) $(ENCODER_LIBPATH) \
+	$(ENCODER_CFLAGS) $(ENCODER_LFLAGS) 
+	$(ENCODER_CC_SIZE) $(ENCODER_OUTPUT) 
+
+Encoder_programclean:
+	rm -f $(ENCODER_OUTPUT) 
+
+#################################################################
 # BOOTLOOP ELF FILES
 #################################################################
 
@@ -201,11 +218,11 @@ $(DOWNLOAD_BIT): $(SYSTEM_BIT) $(BRAMINIT_ELF_FILES) __xps/bitinit.opt
 	-bt $(SYSTEM_BIT) -o $(DOWNLOAD_BIT)
 	@rm -f $(SYSTEM)_bd.bmm
 
-$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(TESTBENCH1_OUTPUT) 
+$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(TESTBENCH1_OUTPUT) $(ENCODER_OUTPUT) 
 	@echo "*********************************************"
 	@echo "Creating system ace file"
 	@echo "*********************************************"
-	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(TESTBENCH1_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
+	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(TESTBENCH1_OUTPUT) $(ENCODER_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
 
 #################################################################
 # SIMULATION FLOW

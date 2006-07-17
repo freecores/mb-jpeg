@@ -58,12 +58,35 @@ Executable: Testbench1/executable.elf
 Source: testbench1/tb1.c
 Header: testbench1/tb1.h
 DefaultInit: executable
+InitBram: 0
+Active: 1
+CompilerOptLevel: 2
+GlobPtrOpt: 0
+DebugSym: 1
+ProfileFlag: 0
+AsmOpt: 
+LinkOpt: 
+ProgStart: 
+StackSize: 
+HeapSize: 
+LinkerScript: 
+ProgCCFlags: 
+SwProj: Encoder
+Processor: microblaze_0
+Executable: Encoder/executable.elf
+Source: encoder/dct.c
+Source: encoder/huffman.c
+Source: encoder/io.c
+Source: encoder/main.c
+Source: encoder/zzq.c
+DefaultInit: EXECUTABLE
 InitBram: 1
 Active: 1
 CompilerOptLevel: 2
 GlobPtrOpt: 0
 DebugSym: 1
 ProfileFlag: 0
+PrepOpt: -D__MICROBLAZE
 AsmOpt: 
 LinkOpt: 
 ProgStart: 
