@@ -45,7 +45,7 @@ int getbmpheader(FILE * file, INFOHEADER *header)
         unsigned char buffer[4];
        // printf("\n %d", sizeof(JPEGHEADER));
         fseek(file,14,SEEK_SET);
-        fread(header, sizeof(INFOHEADER), 1, file);
+        retval = fread(header, sizeof(INFOHEADER), 1, file);
 
         return retval;
 }
