@@ -131,23 +131,6 @@ microblaze_0_libsclean:
 $(MICROBLAZE_0_XMDSTUB): $(LIBRARIES)
 
 #################################################################
-# SOFTWARE APPLICATION TESTBENCH1
-#################################################################
-
-Testbench1_program: $(TESTBENCH1_OUTPUT) 
-
-$(TESTBENCH1_OUTPUT) : $(TESTBENCH1_SOURCES) $(TESTBENCH1_HEADERS) $(TESTBENCH1_LINKER_SCRIPT) \
-                    $(LIBRARIES) __xps/testbench1_compiler.opt
-	@mkdir -p $(TESTBENCH1_OUTPUT_DIR) 
-	$(TESTBENCH1_CC) $(TESTBENCH1_CC_OPT) $(TESTBENCH1_SOURCES) -o $(TESTBENCH1_OUTPUT) \
-	$(TESTBENCH1_OTHER_CC_FLAGS) $(TESTBENCH1_INCLUDES) $(TESTBENCH1_LIBPATH) \
-	$(TESTBENCH1_CFLAGS) $(TESTBENCH1_LFLAGS) 
-	$(TESTBENCH1_CC_SIZE) $(TESTBENCH1_OUTPUT) 
-
-Testbench1_programclean:
-	rm -f $(TESTBENCH1_OUTPUT) 
-
-#################################################################
 # SOFTWARE APPLICATION ENCODER
 #################################################################
 
@@ -218,11 +201,11 @@ $(DOWNLOAD_BIT): $(SYSTEM_BIT) $(BRAMINIT_ELF_FILES) __xps/bitinit.opt
 	-bt $(SYSTEM_BIT) -o $(DOWNLOAD_BIT)
 	@rm -f $(SYSTEM)_bd.bmm
 
-$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(TESTBENCH1_OUTPUT) $(ENCODER_OUTPUT) 
+$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(ENCODER_OUTPUT) 
 	@echo "*********************************************"
 	@echo "Creating system ace file"
 	@echo "*********************************************"
-	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(TESTBENCH1_OUTPUT) $(ENCODER_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
+	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(ENCODER_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
 
 #################################################################
 # SIMULATION FLOW

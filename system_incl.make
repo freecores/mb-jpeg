@@ -28,9 +28,6 @@ LIBGEN_OPTIONS = -mhs $(MHSFILE) -p $(DEVICE) $(SEARCHPATHOPT) \
 
 VPGEN_OPTIONS = -p $(DEVICE) $(SEARCHPATHOPT)
 
-TESTBENCH1_OUTPUT_DIR = Testbench1
-TESTBENCH1_OUTPUT = $(TESTBENCH1_OUTPUT_DIR)/executable.elf
-
 ENCODER_OUTPUT_DIR = Encoder
 ENCODER_OUTPUT = $(ENCODER_OUTPUT_DIR)/executable.elf
 
@@ -45,7 +42,7 @@ MICROBLAZE_0_XMDSTUB = microblaze_0/code/xmdstub.elf
 BRAMINIT_ELF_FILES =  $(ENCODER_OUTPUT) 
 BRAMINIT_ELF_FILE_ARGS =   -pe microblaze_0 $(ENCODER_OUTPUT) 
 
-ALL_USER_ELF_FILES = $(TESTBENCH1_OUTPUT) $(ENCODER_OUTPUT) 
+ALL_USER_ELF_FILES = $(ENCODER_OUTPUT) 
 
 SIM_CMD = vsim
 
@@ -69,7 +66,7 @@ VPEXEC = virtualplatform/vpexec.exe
 
 LIBSCLEAN_TARGETS = microblaze_0_libsclean 
 
-PROGRAMCLEAN_TARGETS = Testbench1_programclean Encoder_programclean 
+PROGRAMCLEAN_TARGETS = Encoder_programclean 
 
 CORE_STATE_DEVELOPMENT_FILES = 
 
@@ -80,7 +77,7 @@ implementation/ilmb_wrapper.ngc \
 implementation/dlmb_wrapper.ngc \
 implementation/dlmb_cntlr_wrapper.ngc \
 implementation/ilmb_cntlr_wrapper.ngc \
-implementation/lmb_bram_wrapper.ngc \
+implementation/ilmb_bram_wrapper.ngc \
 implementation/rs232_uart_1_wrapper.ngc \
 implementation/sysace_compactflash_wrapper.ngc \
 implementation/leds_4bit_wrapper.ngc \
@@ -89,8 +86,7 @@ implementation/pushbuttons_5bit_wrapper.ngc \
 implementation/dcm_0_wrapper.ngc \
 implementation/data_bram_0_wrapper.ngc \
 implementation/data_bram_if_cntlr_0_wrapper.ngc \
-implementation/data_bram_1_wrapper.ngc \
-implementation/data_bram_if_cntlr_1_wrapper.ngc
+implementation/dlmb_bram_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 
@@ -112,42 +108,6 @@ XFLOW_DEPENDENCY = __xps/xpsxflow.opt $(XFLOW_OPT_FILE)
 FPGA_IMP_DEPENDENCY = $(BMM_FILE) $(POSTSYN_NETLIST) $(UCF_FILE) $(BITGEN_UT_FILE) $(XFLOW_DEPENDENCY)
 
 #################################################################
-# SOFTWARE APPLICATION TESTBENCH1
-#################################################################
-
-TESTBENCH1_SOURCES = testbench1/tb1.c 
-
-TESTBENCH1_HEADERS = testbench1/tb1.h 
-
-TESTBENCH1_CC = mb-gcc
-TESTBENCH1_CC_SIZE = mb-size
-TESTBENCH1_CC_OPT = -O2
-TESTBENCH1_CFLAGS = 
-TESTBENCH1_CC_SEARCH = # -B
-TESTBENCH1_LIBPATH = -L./microblaze_0/lib/ # -L
-TESTBENCH1_INCLUDES = -I./microblaze_0/include/  -Itestbench1/ # -I
-TESTBENCH1_LFLAGS = # -l
-TESTBENCH1_CC_PREPROC_FLAG = # -Wp,
-TESTBENCH1_CC_ASM_FLAG = # -Wa,
-TESTBENCH1_CC_LINKER_FLAG = # -Wl,
-TESTBENCH1_LINKER_SCRIPT = 
-TESTBENCH1_LINKER_SCRIPT_FLAG = #-Wl,-T -Wl,$(TESTBENCH1_LINKER_SCRIPT) 
-TESTBENCH1_CC_DEBUG_FLAG =  -g 
-TESTBENCH1_CC_PROFILE_FLAG = # -pg
-TESTBENCH1_CC_GLOBPTR_FLAG= # -mxl-gp-opt
-TESTBENCH1_MODE = executable
-TESTBENCH1_LIBG_OPT = -$(TESTBENCH1_MODE) microblaze_0
-TESTBENCH1_CC_SOFTMUL_FLAG= -mno-xl-soft-mul 
-TESTBENCH1_CC_START_ADDR_FLAG=  # -Wl,-defsym -Wl,_TEXT_START_ADDR=
-TESTBENCH1_CC_STACK_SIZE_FLAG=  # -Wl,-defsym -Wl,_STACK_SIZE=
-TESTBENCH1_CC_HEAP_SIZE_FLAG=  # -Wl,-defsym -Wl,_HEAP_SIZE=
-TESTBENCH1_OTHER_CC_FLAGS= $(TESTBENCH1_CC_GLOBPTR_FLAG)  \
-                  $(TESTBENCH1_CC_START_ADDR_FLAG) $(TESTBENCH1_CC_STACK_SIZE_FLAG) $(TESTBENCH1_CC_HEAP_SIZE_FLAG)  \
-                  $(TESTBENCH1_CC_SOFTMUL_FLAG)  \
-                  $(TESTBENCH1_CC_PREPROC_FLAG) $(TESTBENCH1_CC_ASM_FLAG) $(TESTBENCH1_CC_LINKER_FLAG)  \
-                  $(TESTBENCH1_LINKER_SCRIPT_FLAG) $(TESTBENCH1_CC_DEBUG_FLAG) $(TESTBENCH1_CC_PROFILE_FLAG) 
-
-#################################################################
 # SOFTWARE APPLICATION ENCODER
 #################################################################
 
@@ -157,7 +117,7 @@ ENCODER_HEADERS =
 
 ENCODER_CC = mb-gcc
 ENCODER_CC_SIZE = mb-size
-ENCODER_CC_OPT = -O2
+ENCODER_CC_OPT = -O0
 ENCODER_CFLAGS = 
 ENCODER_CC_SEARCH = # -B
 ENCODER_LIBPATH = -L./microblaze_0/lib/ # -L
@@ -166,8 +126,8 @@ ENCODER_LFLAGS = # -l
 ENCODER_CC_PREPROC_FLAG =   -Wp,-D__MICROBLAZE 
 ENCODER_CC_ASM_FLAG = # -Wa,
 ENCODER_CC_LINKER_FLAG = # -Wl,
-ENCODER_LINKER_SCRIPT = 
-ENCODER_LINKER_SCRIPT_FLAG = #-Wl,-T -Wl,$(ENCODER_LINKER_SCRIPT) 
+ENCODER_LINKER_SCRIPT = Encoder_linker_script.ld
+ENCODER_LINKER_SCRIPT_FLAG = -Wl,-T -Wl,$(ENCODER_LINKER_SCRIPT) 
 ENCODER_CC_DEBUG_FLAG =  -g 
 ENCODER_CC_PROFILE_FLAG = # -pg
 ENCODER_CC_GLOBPTR_FLAG= # -mxl-gp-opt

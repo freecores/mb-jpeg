@@ -59,7 +59,7 @@ Source: testbench1/tb1.c
 Header: testbench1/tb1.h
 DefaultInit: executable
 InitBram: 0
-Active: 1
+Active: 0
 CompilerOptLevel: 2
 GlobPtrOpt: 0
 DebugSym: 1
@@ -82,7 +82,7 @@ Source: encoder/zzq.c
 DefaultInit: EXECUTABLE
 InitBram: 1
 Active: 1
-CompilerOptLevel: 2
+CompilerOptLevel: 0
 GlobPtrOpt: 0
 DebugSym: 1
 ProfileFlag: 0
@@ -92,5 +92,5 @@ LinkOpt:
 ProgStart: 
 StackSize: 
 HeapSize: 
-LinkerScript: 
+LinkerScript: Encoder_linker_script.ld
 ProgCCFlags: 
