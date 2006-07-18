@@ -1,5 +1,9 @@
 //---------------------------------------------------------------------------
 #include <stdio.h>
+#ifdef __MICROBLAZE
+#include "xup2pro.h"
+#endif
+
 #include "io.h"
 #pragma hdrstop
 //---------------------------------------------------------------------------
@@ -42,10 +46,31 @@ unsigned char huffACvalues[162] = {0x01, 0x02, 0x03, 0x00, 0x04, 0x11, 0x05, 0x1
 int getbmpheader(FILE * file, INFOHEADER *header)
 {
         int retval;
-        unsigned char buffer[4];
-       // printf("\n %d", sizeof(JPEGHEADER));
+#ifdef __MICROBLAZE       
+
+//	sysace_fread(header, 1, 14, file);
+//       retval = sysace_fread(header, 1, sizeof(INFOHEADER), file);
+
+       memcpy(header, bmpimage+14, sizeof(INFOHEADER));
+
+	header->size = htonl(header->size);
+	header->width = htonl(header->width);
+	header->height = htonl(header->height);
+	header->planes = hton(header->planes);
+	header->bits = hton(header->bits);
+	header->compression = htonl(header->compression);
+	header->imagesize = htonl(header->imagesize);
+	header->xresolution = htonl(header->xresolution);
+	header->yresolution= htonl(header->yresolution);
+	header->ncolours= htonl(header->ncolours);
+	header->importantcolours= htonl(header->importantcolours);
+
+	return 1;
+	
+#else		
         fseek(file,14,SEEK_SET);
         retval = fread(header, sizeof(INFOHEADER), 1, file);
+#endif		
 
         return retval;
 }
@@ -75,7 +100,7 @@ void writejpegheader(FILE * file, INFOHEADER *header)
         //Number of Quatization Tables
         QTcount = 2;
         headerlength = 12; //12 bytes are needed for the markers
-        huffmantablecount = 4;  //2 AC and 2 DC tables
+        huffmantablecount = 4;      //          // 2 AC and 2 DC tables
         huffmantablesize = 0;
         jpegheader = &_jpegheader;//(JPEGHEADER *)malloc(550);
 
@@ -147,6 +172,11 @@ void writejpegheader(FILE * file, INFOHEADER *header)
         jpegheader->sof0.ImageHeight[1] = header->height & 0xff;
         jpegheader->sof0.ImageWidth[0] = (header->width & 0xff00) >> 8;
         jpegheader->sof0.ImageWidth[1] = header->width & 0xff;
+#ifdef __MICROBLAZE
+	xil_printf("--->%d %d %d %d\r\n", jpegheader->sof0.ImageHeight[0], jpegheader->sof0.ImageHeight[1], jpegheader->sof0.ImageWidth[0], jpegheader->sof0.ImageWidth[1]);
+#else
+	printf("--->%d %d %d %d\r\n", jpegheader->sof0.ImageHeight[0], jpegheader->sof0.ImageHeight[1], jpegheader->sof0.ImageWidth[0], jpegheader->sof0.ImageWidth[1]);
+#endif
         jpegheader->sof0.Components  = components;
         for (i=0; i < components; i++) {
                 jpegheader->sof0.ComponentInfo[i][0] = i+1; //color component
@@ -220,9 +250,14 @@ void writejpegheader(FILE * file, INFOHEADER *header)
         jpegheader->sos.Ignore[1] = 0x3f;
         jpegheader->sos.Ignore[2] = 0x00;
 
+#ifdef __MICROBLAZE		
+	sysace_fwrite(jpegheader, 1, headerlength, file);
+	xil_printf("jpeg header size %x\r\n", headerlength);
+#else
         fwrite(jpegheader,headerlength,1,file);
+	printf("jpeg header size %x\r\n", headerlength);
+#endif
 
-      //  free(jpegheader);
 }
 
 void writejpegfooter(FILE * file)
@@ -230,22 +265,51 @@ void writejpegfooter(FILE * file)
         unsigned char footer[2];
         footer[0] = 0xff;
         footer[1] = 0xd9;
-        fseek(file,0,SEEK_END);
+#ifdef __MICROBLAZE
+	sysace_fwrite(footer, 1, sizeof(footer), file);
+#else
+//        fseek(file,0,SEEK_END);
         fwrite(footer,sizeof(footer),1,file);
+#endif		
 }
+
+static  unsigned char buffer[MATRIX_SIZE*3];
+static int __count2=0;
 
 void readbmpfile(FILE * file, signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3], unsigned int mrow, unsigned int mcol, INFOHEADER * header)
 {
         unsigned int row, col;
-        unsigned char buffer[MATRIX_SIZE*3];
+	int offset;
+	
         for(row = 0;row < MATRIX_SIZE; row++) {
                 //Find first point of row in the matrix to be read.
+#ifdef __MICROBLAZE                
+//               sysace_fread(buffer, 1, MATRIX_SIZE*3, file);
+		offset = bmpsize-3*header->width*(row + 1 + mrow*MATRIX_SIZE)+MATRIX_SIZE*3*mcol;
+		memcpy(buffer, bmpimage + offset, MATRIX_SIZE*3);
+#else
                 fseek(file,-(3*header->width*(row + 1 + mrow*MATRIX_SIZE)-(MATRIX_SIZE*3)*mcol),SEEK_END);
                 //Read row from matrix
                 fread(buffer, 1, MATRIX_SIZE*3, file);
                 //copy row into pixelmatrix
+#endif                
                 for(col = 0; col < MATRIX_SIZE*3; col++) {
                         pixelmatrix[row][col] = buffer[col]- 128;
+#if 0						
+#ifdef __MICROBLAZE
+       if (__count2<4*24*8) {
+	xil_printf("%x ", pixelmatrix[row][col]);
+	__count2++;
+	if ((__count2&0x0f)==0) xil_printf("\r\n");
+       	}
+#else
+       if (__count2<4*24*8) {
+	printf(" %x ", pixelmatrix[row][col]);
+	__count2++;
+	if ((__count2&0x0f)==0) printf("\r\n");
+       	}
+#endif
+#endif						
                 }
         }
  }
@@ -262,6 +326,8 @@ signed char RGB2Cb (int r, int g, int b) {
    return ((112*r - 94*g - 18*b + 128)>>8)+128;
 }
 
+static int __count1=120;
+
 void RGB2YCrCb(signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],signed char YMatrix[MATRIX_SIZE][MATRIX_SIZE],signed char CrMatrix[MATRIX_SIZE][MATRIX_SIZE],signed char CbMatrix[MATRIX_SIZE][MATRIX_SIZE])
 {
         unsigned int row, col;
@@ -270,6 +336,19 @@ void RGB2YCrCb(signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],signed char Y
                         YMatrix[row][col] = RGB2Y(pixelmatrix[row][col*3+2],pixelmatrix[row][col*3+1],pixelmatrix[row][col*3]) - 128;
                         CrMatrix[row][col] = RGB2Cr(pixelmatrix[row][col*3+2],pixelmatrix[row][col*3+1],pixelmatrix[row][col*3]) - 128;
                         CbMatrix[row][col] = RGB2Cb(pixelmatrix[row][col*3+2],pixelmatrix[row][col*3+1],pixelmatrix[row][col*3]) - 128;
+#if 0						
+#ifdef __MICROBLAZE
+       if (__count1<64) {
+	xil_printf("-------------->%x %x %x\r\n", YMatrix[row][col], CrMatrix[row][col], CbMatrix[row][col]);
+	__count1++;
+       	}
+#else
+       if (__count1<64) {
+	printf("-------------->%x %x %x\r\n", YMatrix[row][col], CrMatrix[row][col], CbMatrix[row][col]);
+	__count1++;
+       	}
+#endif
+#endif
                 }
         }
 }

@@ -1,3 +1,135 @@
+#ifdef __MICROBLAZE
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "xup2pro.h"
+
+#include "zzq.h" 
+#include "io.h"
+#include "huffman.h"
+#include "dct.h"
+
+char* bmpimage;
+int bmpsize;
+
+INFOHEADER _bmpheader;
+
+static  signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],YMatrix[MATRIX_SIZE][MATRIX_SIZE],CrMatrix[MATRIX_SIZE][MATRIX_SIZE],CbMatrix[MATRIX_SIZE][MATRIX_SIZE];
+static  signed short temp[MATRIX_SIZE][MATRIX_SIZE], dctresult[MATRIX_SIZE][MATRIX_SIZE];
+static  signed char output[MATRIX_SIZE][MATRIX_SIZE];
+static  signed char bitstream[NUMBER_OF_PIXELS] ;
+static  unsigned char header[389];
+
+int ejpgl_error(int errno, void* remark);
+
+int main()
+{
+  SYSACE_FILE *infile;
+  SYSACE_FILE *outfile;
+  SYSACE_FILE* outfile2;
+  
+  int i;
+  INFOHEADER *bmpheader;
+  JPEGHEADER *jpegheader;
+  unsigned int col, cols, row, rows, remaining,component;
+  unsigned char amount_remaining, Ydcvalue, Cbdcvalue, Crdcvalue ;
+  int encode, compression;
+
+  encode = 1;
+  compression = 0;
+
+  bmpimage=(unsigned char*)0x70000000;
+  bmpsize=0;
+
+  xil_printf("\r\nBMP2JPG Code Compiled at %s %s\r\n", __DATE__, __TIME__);
+
+  bmpheader=&_bmpheader;
+
+  if ((infile = sysace_fopen("image01.bmp", "r")) == NULL) {
+  	ejpgl_error(eOPENINPUT_FILE, 0);
+  	}
+
+  bmpsize = sysace_fread(bmpimage, 1, 65536, infile);
+  xil_printf("bmpsize %d\r\n", bmpsize);
+  if (bmpsize==65536) {
+  	ejpgl_error(eLARGE_INPUTFILE, 0);
+  	}
+
+  if ((outfile2 = sysace_fopen("image01b.bmp", "w")) == NULL) {
+	ejpgl_error(eOPENOUTPUT_FILE, 0);
+  	}
+  sysace_fwrite(bmpimage, 1, bmpsize, outfile2);
+  sysace_fclose(outfile2);
+  
+  if (getbmpheader(infile,bmpheader) == 0) { //File is a valid BMP
+  	ejpgl_error(eINVALID_BMP, 0);
+  	}
+  
+  xil_printf("Image width: %d pixels\r\n", bmpheader->width);
+  xil_printf("Image height: %d pixels\r\n", bmpheader->height);
+
+  rows = bmpheader->height>>3;
+  cols = bmpheader->width>>3;
+  remaining=0x00;
+  amount_remaining=0x00;
+  Ydcvalue = 0x00;
+  Crdcvalue = 0x00;
+  Cbdcvalue = 0x00;
+
+  if ((outfile = sysace_fopen("image01.jpg", "w")) == NULL) {
+  	ejpgl_error(eOPENOUTPUT_FILE, 0);
+ 	} 
+  
+  writejpegheader(outfile,bmpheader);
+
+  for (row = 0; row < rows; row++) {
+      for (col = 0; col < cols; col++) {
+          readbmpfile(infile,pixelmatrix,row,col,bmpheader);
+          RGB2YCrCb(pixelmatrix,YMatrix,CrMatrix,CbMatrix);
+          for(component=0;component<3;component++)  {
+		  	switch (component) {
+				case 0 ://Y-encoding
+				dct(YMatrix,dctresult);
+                            zzq(dctresult,bitstream,compression,encode);
+                            Ydcvalue = EncodeDataUnit(bitstream,Ydcvalue,outfile, &remaining, &amount_remaining,component);
+                            break;
+                            case 1 ://Cr-encoding
+                            dct(CrMatrix,dctresult);
+                            zzq(dctresult,bitstream,compression,encode);
+                            Crdcvalue = EncodeDataUnit(bitstream,Crdcvalue,outfile, &remaining, &amount_remaining,component);
+                            break;
+                            case 2 ://Cb-encoding
+                            dct(CbMatrix,dctresult);
+                            zzq(dctresult,bitstream,compression,encode);
+                            Cbdcvalue = EncodeDataUnit(bitstream,Cbdcvalue,outfile, &remaining, &amount_remaining,component);
+                            break;
+                            }
+                      }
+            }
+   }
+   HuffmanEncodeFinishSend(&remaining,&amount_remaining,outfile);
+   xil_printf("\r\nProcessed %d %dx%d-blocks.\r\n",(row-1)*cols+col,MATRIX_SIZE,MATRIX_SIZE);
+   writejpegfooter(outfile);
+   
+   
+   sysace_fclose(outfile);
+   sysace_fclose(infile);
+   return 0;
+
+}
+
+int ejpgl_error(int errno, void* remark) {
+
+	xil_printf("--> Error %d\r\n", errno);
+	exit(1);
+
+}
+
+
+
+#else
+
 //---------------------------------------------------------------------------
 typedef union {		/* block of pixel-space values */
   unsigned char	block[8][8];
@@ -14,7 +146,7 @@ typedef union {		/* block of frequency-space values */
 #ifndef __MICROBLAZE
 #include <windows.h>
 #endif
-#include "zzq.h"
+#include "zzq.h" 
 #include "io.h"
 #include "huffman.h"
 #include "dct.h"
@@ -168,3 +300,6 @@ int main(int argc, char* argv[])
   return 0;
 }
 //---------------------------------------------------------------------------
+
+#endif
+

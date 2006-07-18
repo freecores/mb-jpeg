@@ -21,13 +21,16 @@ cr= 2
 //---------------------------------------------------------------------------
 #pragma hdrstop
 #include <stdio.h>
+#ifdef __MICROBLAZE
+#include "xup2pro.h"
+#endif
 //===========================================================================
 void PrintMatrix(char* pixelmatrix)
 {
 int i;
-        printf("MATRIX= \n");
-	for (i=0;i<64;i++) printf("%d |",pixelmatrix[i]);
-       	printf("\n");
+//        printf("MATRIX= \n");
+//	for (i=0;i<64;i++) printf("%d |",pixelmatrix[i]);
+//       	printf("\n");
 }
 //===========================================================================
 void FillMatrix( char* pixelmatrix,int select)
@@ -261,7 +264,9 @@ case 0xF7 :  *lenght=0x10; *out=0xFFFB; break; //1111111111111011
 case 0xF8 :  *lenght=0x10; *out=0xFFFC; break; //1111111111111100
 case 0xF9 :  *lenght=0x10; *out=0xFFFD; break; //1111111111111101
 case 0xFA :  *lenght=0x10; *out=0xFFFE; break; //1111111111111110
+#ifndef __MICROBLAZE
 default : printf("WAARDE STAAT NIET IN TABEL!!!!!!!!!!!!!!!!!!!!\n");break;
+#endif
         }
   //      printf("magnitude= %x out= %x lenght= %d \n",magnitude,*out,*lenght);
         return;
@@ -450,7 +455,9 @@ case 0xF7 :  *lenght=16; *out=0xFFFB; break; //1111111111111011
 case 0xF8 :  *lenght=16; *out=0xFFFC; break; //1111111111111100
 case 0xF9 :  *lenght=16; *out=0xFFFD; break; //1111111111111101
 case 0xFA :  *lenght=16; *out=0xFFFE; break; //1111111111111110
+#ifndef __MICROBLAZE
 default : printf("WAARDE STAAT NIET IN TABEL!!!!!!!!!!!!!!!!!!!!\n");break;
+#endif
         }
   //      printf("magnitude= %x out= %x lenght= %d \n",magnitude,*out,*lenght);
         return;
@@ -484,6 +491,9 @@ void ReverseExtend (char value, unsigned char *magnitude, unsigned char *bits)
  //	printf("reverseextend magnitude= %d bits= %d",magnitude,bits);
 	return;
 }
+
+static int __count3=0;
+
 //===========================================================================
 void WriteRawBits16(unsigned char amount_bits, unsigned int bits, unsigned int *remaining,unsigned char *amount_remaining, FILE* file)     //*remaining needs bo be more than 8 bits because 8 bits could be added and ther ecould already be up ot 7 bits in *remaining
 // this function collects bits to send
@@ -494,28 +504,64 @@ void WriteRawBits16(unsigned char amount_bits, unsigned int bits, unsigned int *
         unsigned int mask;
         unsigned char send2;
         int count;
-        mask=0x00;                                                              //init mask
+
+ #ifdef __MICROBLAZE
+       if (__count3<16) {
+	xil_printf("%x %x, ", amount_bits, bits);
+	__count3++;
+	if ((__count3&0x07)==0) xil_printf("\r\n");
+       	}
+#else
+       if (__count3<16) {
+	printf(" %x %x, ", amount_bits, bits);
+	__count3++;
+	if ((__count3&0x07)==0) printf("\r\n");
+       	}
+#endif
+
+		
+        mask=0x00;  //init mask
         *remaining=(*remaining<<amount_bits);                                   //shift to make place for the new bits
         for (count=amount_bits; count>0; count--) mask=(mask<<1)|0x01;          //create mask for adding bit
         *remaining=*remaining | (bits&mask);                                    //add bits
         *amount_remaining=*amount_remaining + amount_bits;                      //change *amount_remaining to the correct new value
         if (*amount_remaining >= 16)                                            //are there more than 16 bits in buffer, send 16 bits
         {
+
+#ifndef __MICROBLAZE
 if (*amount_remaining >= 32 ) printf("ERROR, more bits to send %d",*amount_remaining);
+#endif
+
                 send=*remaining>>(*amount_remaining-16);                        //this value can be send/stored (in art this can be dony by selecting bits)
                 send2=(send & 0xFF00) >>8;
+#ifdef __MICROBLAZE				
+               sysace_fwrite(&send2,1,1,file);
+#else
                 fwrite(&send2,1,1,file);
+#endif
                 if (send2==0xFF)
                 {
                         send2=0x00;
+#ifdef __MICROBLAZE				
+                        sysace_fwrite(&send2,1,1,file);
+#else
                         fwrite(&send2,1,1,file);
+#endif
                 }
                 send2=send & 0xFF;
+#ifdef __MICROBLAZE				
+               sysace_fwrite(&send2,1,1,file);
+#else
                 fwrite(&send2,1,1,file);
+#endif
                 if (send2==0xFF)
                 {
                         send2=0x00;
-                        fwrite(&send2,1,1,file);
+#ifdef __MICROBLAZE				
+                       sysace_fwrite(&send2,1,1,file);
+#else
+                       fwrite(&send2,1,1,file);
+#endif
                 }
                 *amount_remaining=*amount_remaining-16;                         //descrease by 16 because these are send
         }
@@ -531,15 +577,23 @@ void HuffmanEncodeFinishSend(unsigned int *remaining,unsigned char *amount_remai
         unsigned int mask;
         int  count;
         mask=0x00;                                                              //init mask
-        if (*amount_remaining >= 8)                                             //2 bytes to send, send first byte
+        if (*amount_remaining >= 8)                                           //  //2 bytes to send, send first byte
         {
                 send=*remaining>>(*amount_remaining-8);                         //shift so that first byte is ready to send
+#ifdef __MICROBLAZE				
+                sysace_fwrite(&send,1,1,file);
+#else
                 fwrite(&send,1,1,file);
+#endif
                 if (send==0xFF)                                                 //is this still needed????
                 {
                         send=0x00;
+#ifdef __MICROBLAZE				
+                        sysace_fwrite(&send,1,1,file);
+#else
                         fwrite(&send,1,1,file);
-                }
+ #endif
+               }
                 *amount_remaining=*amount_remaining -8;                         // lower the value to the amount of bits that still needs to be send
         }
         if (*amount_remaining >= 0)                                             //there is a last byte to send
@@ -548,7 +602,11 @@ void HuffmanEncodeFinishSend(unsigned int *remaining,unsigned char *amount_remai
                 mask=0x00;                                                      //init mask
                 for (count=(8-*amount_remaining); count>0; count--) mask=(mask<<1)|0x01; //create mask to fill byte up with ones
                 send=send | mask;                                               //add the ones to the byte
+#ifdef __MICROBLAZE				
+                sysace_fwrite(&send,1,1,file);
+#else
                 fwrite(&send,1,1,file);
+#endif
                 *amount_remaining=0x00;                                         //is this needed?
         }
         return;
@@ -581,11 +639,13 @@ char EncodeDataUnit(char dataunit[64], char last_dc_value, FILE* file, unsigned 
 	char difference;
         unsigned char magnitude,zerorun,ii,ert;
         unsigned int bits;
+	unsigned char bits_char;
                                          //init
   //    PrintMatrix(dataunit) ;
 	difference = dataunit[0] - last_dc_value;
 	last_dc_value=dataunit[0];
-	ReverseExtend(difference, &magnitude,&bits);
+	ReverseExtend(difference, &magnitude,&bits_char);
+	bits=bits_char;
 	HuffmanEncodeUsingDCTable(magnitude,remaining,amount_remaining, file);
         WriteRawBits16(magnitude,bits,remaining,amount_remaining, file);
 	zerorun=0;
@@ -600,7 +660,8 @@ char EncodeDataUnit(char dataunit[64], char last_dc_value, FILE* file, unsigned 
                                 zerorun=zerorun-16;
                             //    printf("16 zeros:  %d\n",zerorun);
 			}
-			ReverseExtend(dataunit[ii],&magnitude,&bits);
+			ReverseExtend(dataunit[ii],&magnitude,&bits_char);
+			bits=bits_char;
                         ert= ((int)zerorun *16);                                     //ERROR !!!!!!!!!!!
                         ert=ert + magnitude;
 			HuffmanEncodeUsingACTable(ert,remaining,amount_remaining,file);
@@ -618,6 +679,8 @@ char EncodeDataUnit(char dataunit[64], char last_dc_value, FILE* file, unsigned 
  //       HuffmanEncodeFinishSend(remaining,amount_remaining,file);
         return last_dc_value;
 }
+
+#if 0
 //===========================================================================
 void DecodeDataUnit(char *coefficients[64], char last_dc_value, char value)
 {
@@ -650,6 +713,6 @@ void DecodeDataUnit(char *coefficients[64], char last_dc_value, char value)
         }
 }
 //===========================================================================
-
+#endif
 
 

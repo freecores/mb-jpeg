@@ -16,6 +16,8 @@
 	Output: dct is the 8x8 output array
 */
 signed int max_val = 0;
+static int __count=0;
+
 void dct(signed char pixels[8][8], signed short dct[8][8])
 {
         FILE * file;
@@ -29,6 +31,25 @@ void dct(signed char pixels[8][8], signed short dct[8][8])
     //    file = fopen("weights.h","w+");
       //  fprintf(file,"double weights1[512] = {");
 	/* find 1-d dct along rows */
+#if 0	
+
+#ifdef __MICROBLAZE
+       if (__count<4) {
+	   	for (i=0; i<8; i++)
+			for (j=0; j<8; j++)
+	xil_printf("%x ", pixels[i][j]);
+       xil_printf("\r\n");
+       	}
+#else
+       if (__count<4) {
+	   	for (i=0; i<8; i++)
+			for (j=0; j<8; j++)
+	printf(" %x ", pixels[i][j]);
+       printf("\r\n");
+       	}
+#endif
+#endif
+
  	for (intr=0; intr<8; intr++)
 		for (intc=0; intc<8; intc++) {
 			for (i=0,f_val=0; i<8; i++) {
@@ -58,7 +79,25 @@ void dct(signed char pixels[8][8], signed short dct[8][8])
                         else
                                 dct[outr][outc] = (11585*(f_val>>14)>>15);
 		}
-
+#if 0
+#ifdef __MICROBLAZE
+       if (__count<4) {
+	   	for (i=0; i<8; i++)
+			for (j=0; j<8; j++)
+	xil_printf("%x ", dct[i][j]);
+       xil_printf("\r\n");
+	__count++;
+       	}
+#else
+       if (__count<4) {
+	   	for (i=0; i<8; i++)
+			for (j=0; j<8; j++)
+	printf(" %x ", dct[i][j]);
+       printf("\r\n");
+	__count++;
+       	}
+#endif
+#endif
 
 }
 
