@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 2.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="Encoder.xygwin.mb.exec.1194899657" name="Xilinx MicroBlaze Executable" projectType="xygwin.mb.exec">
+<configuration id="mb.xygwin.exec.debug.602245745" name="Debug" parent="mb.xygwin.exec.debug" artifactName="Encoder" artifactExtension="elf" cleanCommand="rm -rf">
+<toolChain superClass="mb.xygwin.exec.debug.toolchain" id="mb.xygwin.exec.debug.toolchain.1559671636" name="Debug.toolchain">
+<tool superClass="mb.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.compiler" id="mb.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.compiler.679472982" name="MicroBlaze C Compiler" command="mb-gcc">
+<option superClass="xygwin.mb.c.compiler.general.include.paths" id="xygwin.mb.c.compiler.general.include.paths.383846128" valueType="includePath">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/include" builtIn="false"/>
+</option>
+<option superClass="xygwin.mb.c.compiler.general.optimization.level" id="xygwin.mb.c.compiler.general.optimization.level.1245871413" value="xygwin.mb.c.optimization.level.none" valueType="enumerated"/>
+<option superClass="xygwin.mb.c.compiler.debugging.level" id="xygwin.mb.c.compiler.debugging.level.1990705473" value="xygwin.mb.c.debugging.level.default" valueType="enumerated"/>
+<option superClass="xygwin.mb.c.preprocessor.def.symbols" id="xygwin.mb.c.preprocessor.def.symbols.709054186" valueType="definedSymbols">
+<listOptionValue value="__MICROBLAZE" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="mb.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.compiler" id="mb.xygwin.exec.debug.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.compiler.1740230400" name="MicroBlaze C++ Compiler">
+<option superClass="xygwin.mb.compiler.general.include.paths" id="xygwin.mb.compiler.general.include.paths.37743093" valueType="includePath">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/include" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="com.xilinx.mdt.edk.build.tool.xygwin.mb.c.link" id="com.xilinx.mdt.edk.build.tool.xygwin.mb.c.link.1616284189" name="MicroBlaze C Linker">
+<option superClass="xygwin.mb.c.link.paths" id="xygwin.mb.c.link.paths.975548319" valueType="stringList">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/lib" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.link" id="com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.link.303108100" name="MicroBlaze C++ Linker">
+<option superClass="xygwin.mb.link.ld.paths" id="xygwin.mb.link.ld.paths.270664798" valueType="stringList">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/lib" builtIn="false"/>
+</option>
+</tool>
+</toolChain>
+</configuration>
+<configuration id="mb.xygwin.exec.release.1153498697" name="Release" parent="mb.xygwin.exec.release" artifactName="Encoder" artifactExtension="elf" cleanCommand="rm -rf">
+<toolChain superClass="mb.xygwin.exec.release.toolchain" id="mb.xygwin.exec.release.toolchain.957873867" name="Release.toolchain">
+<tool superClass="mb.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.compiler" id="mb.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.compiler.322049332" name="MicroBlaze C Compiler">
+<option superClass="xygwin.mb.c.compiler.general.include.paths" id="xygwin.mb.c.compiler.general.include.paths.822770430" valueType="includePath">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/include" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="mb.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.compiler" id="mb.xygwin.exec.release.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.compiler.587962361" name="MicroBlaze C++ Compiler">
+<option superClass="xygwin.mb.compiler.general.include.paths" id="xygwin.mb.compiler.general.include.paths.1634647658" valueType="includePath">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/include" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="com.xilinx.mdt.edk.build.tool.xygwin.mb.c.link" id="com.xilinx.mdt.edk.build.tool.xygwin.mb.c.link.615171707" name="MicroBlaze C Linker">
+<option superClass="xygwin.mb.c.link.paths" id="xygwin.mb.c.link.paths.1123873005" valueType="stringList">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/lib" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.link" id="com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.link.214633272" name="MicroBlaze C++ Linker">
+<option superClass="xygwin.mb.link.ld.paths" id="xygwin.mb.link.ld.paths.971635136" valueType="stringList">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/lib" builtIn="false"/>
+</option>
+</tool>
+</toolChain>
+</configuration>
+<configuration id="mb.xygwin.exec.profile.154444796" name="Profile" parent="mb.xygwin.exec.profile" artifactName="Encoder" artifactExtension="elf" cleanCommand="rm -rf">
+<toolChain superClass="mb.xygwin.exec.profile.toolchain" id="mb.xygwin.exec.profile.toolchain.2042964595" name="Profile.toolchain">
+<tool superClass="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.compiler" id="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.compiler.651809076" name="MicroBlaze C Compiler">
+<option superClass="xygwin.mb.c.compiler.general.include.paths" id="xygwin.mb.c.compiler.general.include.paths.698177397" valueType="includePath">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/include" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.link" id="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.c.link.1528638620" name="MicroBlaze C Linker">
+<option superClass="xygwin.mb.c.link.paths" id="xygwin.mb.c.link.paths.1474010054" valueType="stringList">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/lib" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.compiler" id="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.compiler.1896844227" name="MicroBlaze C++ Compiler">
+<option superClass="xygwin.mb.compiler.general.include.paths" id="xygwin.mb.compiler.general.include.paths.759784069" valueType="includePath">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/include" builtIn="false"/>
+</option>
+</tool>
+<tool superClass="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.link" id="mb.xygwin.exec.profile.com.xilinx.mdt.edk.build.tool.xygwin.mb.cpp.link.722042511" name="MicroBlaze C++ Linker">
+<option superClass="xygwin.mb.link.ld.paths" id="xygwin.mb.link.ld.paths.1759556686" valueType="stringList">
+<listOptionValue value="D:/mb-jpeg/microblaze_0/lib" builtIn="false"/>
+</option>
+</tool>
+</toolChain>
+</configuration>
+</project>
+</ManagedProjectBuildInfo>
