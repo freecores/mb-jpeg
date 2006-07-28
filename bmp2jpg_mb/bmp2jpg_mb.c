@@ -72,6 +72,18 @@ void put_char(unsigned c) {
 
 }
 
+unsigned long htonl(unsigned long x) {
+
+	return ((((x)&0xff000000)>>24) | (((x)&0x00ff0000)>>8) | (((x)&0x0000ff00)<<8) | (((x)&0x000000ff)<<24));
+		
+}
+
+unsigned short hton(unsigned short x) {
+
+	return ((((x) & 0xff00)>>8) | (((x) &0x00ff)<<8));
+
+}
+
 
 int main()
 {
@@ -100,12 +112,12 @@ int main()
   	ejpgl_error(eLARGE_INPUTFILE, 0);
   	}
 
-  if ((outfile2 = sysace_fopen("image01b.bmp", "w")) == NULL) {   // see if the BMP file is correctly read into memory
+/*  if ((outfile2 = sysace_fopen("image01b.bmp", "w")) == NULL) {   // see if the BMP file is correctly read into memory
 	ejpgl_error(eOPENOUTPUT_FILE, 0);
   	}
   
   sysace_fwrite(bmpimage, 1, bmpsize, outfile2);
-  sysace_fclose(outfile2);
+  sysace_fclose(outfile2); */
   
   if (getbmpheader(infile,bmpheader) == 0) { //File is a valid BMP
   	ejpgl_error(eINVALID_BMP, 0);
