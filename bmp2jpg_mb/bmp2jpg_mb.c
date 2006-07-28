@@ -13,7 +13,7 @@
 #endif
 
 char* bmpimage;
-int bmpsize;
+int bmpsize; 
 
 INFOHEADER _bmpheader;
 INFOHEADER *bmpheader;
@@ -66,7 +66,7 @@ void get_MB(int mb_row, int mb_col, signed char pixelmatrix[MATRIX_SIZE][MATRIX_
 
 }
 
-void put_char(unsigned c) {
+void put_char(unsigned char c) {
 
 	sysace_fwrite(&c, 1, 1, outfile);
 

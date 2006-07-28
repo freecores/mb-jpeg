@@ -676,12 +676,12 @@ void HuffmanEncodeFinishSend()
         if (vlc_amount_remaining >= 8)                                             //2 bytes to send, send first byte
         {
                 send=vlc_remaining>>(vlc_amount_remaining-8);                         //shift so that first byte is ready to send
-		  vlc_output_byte(send);
+		  vlc_output_byte(send&0xff);
 //                fwrite(&send,1,1,file);
                 if (send==0xFF)                                                 //is this still needed????
                 {
                         send=0x00;
-			   vlc_output_byte(send);
+			   vlc_output_byte(send&0xff);
 //                        fwrite(&send,1,1,file);
                 }
                 vlc_amount_remaining=vlc_amount_remaining -8;                         // lower the value to the amount of bits that still needs to be send
@@ -692,7 +692,7 @@ void HuffmanEncodeFinishSend()
                 mask=0x00;                                                      //init mask
                 for (count=(8-vlc_amount_remaining); count>0; count--) mask=(mask<<1)|0x01; //create mask to fill byte up with ones
                 send=send | mask;                                               //add the ones to the byte
-                vlc_output_byte(send);
+                vlc_output_byte(send&0xff);
 //                fwrite(&send,1,1,file);
                 vlc_amount_remaining=0x00;                                         //is this needed?
         }
@@ -726,13 +726,15 @@ char EncodeDataUnit(char dataunit[64], unsigned int color)
 	char difference;
         unsigned char magnitude,zerorun,ii,ert;
         unsigned int bits;
+	unsigned char bit_char;
 	 char last_dc_value;
                                          //init
   //    PrintMatrix(dataunit) ;
   	last_dc_value = dcvalue[color];
 	difference = dataunit[0] - last_dc_value;
 	last_dc_value=dataunit[0];
-	ReverseExtend(difference, &magnitude,&bits);
+	ReverseExtend(difference, &magnitude,&bit_char);
+	bits = bit_char;
 	HuffmanEncodeUsingDCTable(magnitude);
         WriteRawBits16(magnitude,bits);
 	zerorun=0;
@@ -747,7 +749,8 @@ char EncodeDataUnit(char dataunit[64], unsigned int color)
                                 zerorun=zerorun-16;
                             //    printf("16 zeros:  %d\n",zerorun);
 			}
-			ReverseExtend(dataunit[ii],&magnitude,&bits);
+			ReverseExtend(dataunit[ii],&magnitude,&bit_char);
+			bits=bit_char;
                         ert= ((int)zerorun *16);                                     //ERROR !!!!!!!!!!!
                         ert=ert + magnitude;
 			HuffmanEncodeUsingACTable(ert);
