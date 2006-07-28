@@ -28,8 +28,8 @@ LIBGEN_OPTIONS = -mhs $(MHSFILE) -p $(DEVICE) $(SEARCHPATHOPT) \
 
 VPGEN_OPTIONS = -p $(DEVICE) $(SEARCHPATHOPT)
 
-ENCODER_OUTPUT_DIR = Encoder
-ENCODER_OUTPUT = $(ENCODER_OUTPUT_DIR)/executable.elf
+BMP2JPG_MB_OUTPUT_DIR = bmp2jpg_mb
+BMP2JPG_MB_OUTPUT = $(BMP2JPG_MB_OUTPUT_DIR)/executable.elf
 
 MICROBLAZE_BOOTLOOP = $(XILINX_EDK_DIR)/sw/lib/microblaze/mb_bootloop.elf
 PPC405_BOOTLOOP = $(XILINX_EDK_DIR)/sw/lib/ppc405/ppc_bootloop.elf
@@ -39,10 +39,10 @@ BOOTLOOP_DIR = bootloops
 MICROBLAZE_0_BOOTLOOP = $(BOOTLOOP_DIR)/microblaze_0.elf
 MICROBLAZE_0_XMDSTUB = microblaze_0/code/xmdstub.elf
 
-BRAMINIT_ELF_FILES =  $(ENCODER_OUTPUT) 
-BRAMINIT_ELF_FILE_ARGS =   -pe microblaze_0 $(ENCODER_OUTPUT) 
+BRAMINIT_ELF_FILES =  $(BMP2JPG_MB_OUTPUT) 
+BRAMINIT_ELF_FILE_ARGS =   -pe microblaze_0 $(BMP2JPG_MB_OUTPUT) 
 
-ALL_USER_ELF_FILES = $(ENCODER_OUTPUT) 
+ALL_USER_ELF_FILES = $(BMP2JPG_MB_OUTPUT) 
 
 SIM_CMD = vsim
 
@@ -66,9 +66,9 @@ VPEXEC = virtualplatform/vpexec.exe
 
 LIBSCLEAN_TARGETS = microblaze_0_libsclean 
 
-PROGRAMCLEAN_TARGETS = Encoder_programclean 
+PROGRAMCLEAN_TARGETS = bmp2jpg_mb_programclean 
 
-CORE_STATE_DEVELOPMENT_FILES = 
+CORE_STATE_DEVELOPMENT_FILES = D:\mb-jpeg\pcores\fsl_dct_v1_00_a\hdl\vhdl\fsl_dct.vhd
 
 WRAPPER_NGC_FILES = implementation/microblaze_0_wrapper.ngc \
 implementation/mb_opb_wrapper.ngc \
@@ -86,7 +86,10 @@ implementation/pushbuttons_5bit_wrapper.ngc \
 implementation/dcm_0_wrapper.ngc \
 implementation/data_bram_0_wrapper.ngc \
 implementation/data_bram_if_cntlr_0_wrapper.ngc \
-implementation/dlmb_bram_wrapper.ngc
+implementation/dlmb_bram_wrapper.ngc \
+implementation/microblaze_0_to_fsl_dct_0_wrapper.ngc \
+implementation/fsl_dct_0_wrapper.ngc \
+implementation/fsl_dct_0_to_microblaze_0_wrapper.ngc
 
 POSTSYN_NETLIST = implementation/$(SYSTEM).ngc
 
@@ -108,37 +111,37 @@ XFLOW_DEPENDENCY = __xps/xpsxflow.opt $(XFLOW_OPT_FILE)
 FPGA_IMP_DEPENDENCY = $(BMM_FILE) $(POSTSYN_NETLIST) $(UCF_FILE) $(BITGEN_UT_FILE) $(XFLOW_DEPENDENCY)
 
 #################################################################
-# SOFTWARE APPLICATION ENCODER
+# SOFTWARE APPLICATION BMP2JPG_MB
 #################################################################
 
-ENCODER_SOURCES = encoder/dct.c encoder/huffman.c encoder/io.c encoder/main.c encoder/zzq.c 
+BMP2JPG_MB_SOURCES = bmp2jpg_mb/bmp2jpg_mb.c bmp2jpg_mb/ColorConversion.c bmp2jpg_mb/dct.c bmp2jpg_mb/huffman.c bmp2jpg_mb/zzq.c 
 
-ENCODER_HEADERS = 
+BMP2JPG_MB_HEADERS = 
 
-ENCODER_CC = mb-gcc
-ENCODER_CC_SIZE = mb-size
-ENCODER_CC_OPT = -O0
-ENCODER_CFLAGS = 
-ENCODER_CC_SEARCH = # -B
-ENCODER_LIBPATH = -L./microblaze_0/lib/ # -L
-ENCODER_INCLUDES = -I./microblaze_0/include/ # -I
-ENCODER_LFLAGS = # -l
-ENCODER_CC_PREPROC_FLAG =   -Wp,-D__MICROBLAZE 
-ENCODER_CC_ASM_FLAG = # -Wa,
-ENCODER_CC_LINKER_FLAG = # -Wl,
-ENCODER_LINKER_SCRIPT = Encoder_linker_script.ld
-ENCODER_LINKER_SCRIPT_FLAG = -Wl,-T -Wl,$(ENCODER_LINKER_SCRIPT) 
-ENCODER_CC_DEBUG_FLAG =  -g 
-ENCODER_CC_PROFILE_FLAG = # -pg
-ENCODER_CC_GLOBPTR_FLAG= # -mxl-gp-opt
-ENCODER_MODE = executable
-ENCODER_LIBG_OPT = -$(ENCODER_MODE) microblaze_0
-ENCODER_CC_SOFTMUL_FLAG= -mno-xl-soft-mul 
-ENCODER_CC_START_ADDR_FLAG=  # -Wl,-defsym -Wl,_TEXT_START_ADDR=
-ENCODER_CC_STACK_SIZE_FLAG=  # -Wl,-defsym -Wl,_STACK_SIZE=
-ENCODER_CC_HEAP_SIZE_FLAG=  # -Wl,-defsym -Wl,_HEAP_SIZE=
-ENCODER_OTHER_CC_FLAGS= $(ENCODER_CC_GLOBPTR_FLAG)  \
-                  $(ENCODER_CC_START_ADDR_FLAG) $(ENCODER_CC_STACK_SIZE_FLAG) $(ENCODER_CC_HEAP_SIZE_FLAG)  \
-                  $(ENCODER_CC_SOFTMUL_FLAG)  \
-                  $(ENCODER_CC_PREPROC_FLAG) $(ENCODER_CC_ASM_FLAG) $(ENCODER_CC_LINKER_FLAG)  \
-                  $(ENCODER_LINKER_SCRIPT_FLAG) $(ENCODER_CC_DEBUG_FLAG) $(ENCODER_CC_PROFILE_FLAG) 
+BMP2JPG_MB_CC = mb-gcc
+BMP2JPG_MB_CC_SIZE = mb-size
+BMP2JPG_MB_CC_OPT = -O0
+BMP2JPG_MB_CFLAGS = 
+BMP2JPG_MB_CC_SEARCH = # -B
+BMP2JPG_MB_LIBPATH = -L./microblaze_0/lib/ # -L
+BMP2JPG_MB_INCLUDES = -I./microblaze_0/include/ # -I
+BMP2JPG_MB_LFLAGS = # -l
+BMP2JPG_MB_CC_PREPROC_FLAG =   -Wp,-D__MICROBLAZE 
+BMP2JPG_MB_CC_ASM_FLAG = # -Wa,
+BMP2JPG_MB_CC_LINKER_FLAG = # -Wl,
+BMP2JPG_MB_LINKER_SCRIPT = bmp2jpg_mb_linker_script.ld
+BMP2JPG_MB_LINKER_SCRIPT_FLAG = -Wl,-T -Wl,$(BMP2JPG_MB_LINKER_SCRIPT) 
+BMP2JPG_MB_CC_DEBUG_FLAG =  -g 
+BMP2JPG_MB_CC_PROFILE_FLAG = # -pg
+BMP2JPG_MB_CC_GLOBPTR_FLAG= # -mxl-gp-opt
+BMP2JPG_MB_MODE = executable
+BMP2JPG_MB_LIBG_OPT = -$(BMP2JPG_MB_MODE) microblaze_0
+BMP2JPG_MB_CC_SOFTMUL_FLAG= -mno-xl-soft-mul 
+BMP2JPG_MB_CC_START_ADDR_FLAG=  # -Wl,-defsym -Wl,_TEXT_START_ADDR=
+BMP2JPG_MB_CC_STACK_SIZE_FLAG=  # -Wl,-defsym -Wl,_STACK_SIZE=
+BMP2JPG_MB_CC_HEAP_SIZE_FLAG=  # -Wl,-defsym -Wl,_HEAP_SIZE=
+BMP2JPG_MB_OTHER_CC_FLAGS= $(BMP2JPG_MB_CC_GLOBPTR_FLAG)  \
+                  $(BMP2JPG_MB_CC_START_ADDR_FLAG) $(BMP2JPG_MB_CC_STACK_SIZE_FLAG) $(BMP2JPG_MB_CC_HEAP_SIZE_FLAG)  \
+                  $(BMP2JPG_MB_CC_SOFTMUL_FLAG)  \
+                  $(BMP2JPG_MB_CC_PREPROC_FLAG) $(BMP2JPG_MB_CC_ASM_FLAG) $(BMP2JPG_MB_CC_LINKER_FLAG)  \
+                  $(BMP2JPG_MB_LINKER_SCRIPT_FLAG) $(BMP2JPG_MB_CC_DEBUG_FLAG) $(BMP2JPG_MB_CC_PROFILE_FLAG) 

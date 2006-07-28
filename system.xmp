@@ -1,5 +1,5 @@
 #Please do not modify this file by hand
-XmpVersion: 8.1
+XmpVersion: 8.1.02
 IntStyle: default
 ModuleSearchPath: D:/XilinxXUP/lib/
 MHS File: system.mhs
@@ -79,6 +79,30 @@ Source: encoder/huffman.c
 Source: encoder/io.c
 Source: encoder/main.c
 Source: encoder/zzq.c
+Header: encoder/io.h
+DefaultInit: EXECUTABLE
+InitBram: 1
+Active: 0
+CompilerOptLevel: 0
+GlobPtrOpt: 0
+DebugSym: 1
+ProfileFlag: 0
+PrepOpt: -D__MICROBLAZE
+AsmOpt: 
+LinkOpt: 
+ProgStart: 
+StackSize: 
+HeapSize: 
+LinkerScript: Encoder_linker_script.ld
+ProgCCFlags: 
+SwProj: bmp2jpg_mb
+Processor: microblaze_0
+Executable: bmp2jpg_mb/executable.elf
+Source: bmp2jpg_mb/bmp2jpg_mb.c
+Source: bmp2jpg_mb/ColorConversion.c
+Source: bmp2jpg_mb/dct.c
+Source: bmp2jpg_mb/huffman.c
+Source: bmp2jpg_mb/zzq.c
 DefaultInit: EXECUTABLE
 InitBram: 1
 Active: 1
@@ -92,5 +116,5 @@ LinkOpt:
 ProgStart: 
 StackSize: 
 HeapSize: 
-LinkerScript: Encoder_linker_script.ld
+LinkerScript: bmp2jpg_mb_linker_script.ld
 ProgCCFlags: 

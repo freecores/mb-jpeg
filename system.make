@@ -131,21 +131,21 @@ microblaze_0_libsclean:
 $(MICROBLAZE_0_XMDSTUB): $(LIBRARIES)
 
 #################################################################
-# SOFTWARE APPLICATION ENCODER
+# SOFTWARE APPLICATION BMP2JPG_MB
 #################################################################
 
-Encoder_program: $(ENCODER_OUTPUT) 
+bmp2jpg_mb_program: $(BMP2JPG_MB_OUTPUT) 
 
-$(ENCODER_OUTPUT) : $(ENCODER_SOURCES) $(ENCODER_HEADERS) $(ENCODER_LINKER_SCRIPT) \
-                    $(LIBRARIES) __xps/encoder_compiler.opt
-	@mkdir -p $(ENCODER_OUTPUT_DIR) 
-	$(ENCODER_CC) $(ENCODER_CC_OPT) $(ENCODER_SOURCES) -o $(ENCODER_OUTPUT) \
-	$(ENCODER_OTHER_CC_FLAGS) $(ENCODER_INCLUDES) $(ENCODER_LIBPATH) \
-	$(ENCODER_CFLAGS) $(ENCODER_LFLAGS) 
-	$(ENCODER_CC_SIZE) $(ENCODER_OUTPUT) 
+$(BMP2JPG_MB_OUTPUT) : $(BMP2JPG_MB_SOURCES) $(BMP2JPG_MB_HEADERS) $(BMP2JPG_MB_LINKER_SCRIPT) \
+                    $(LIBRARIES) __xps/bmp2jpg_mb_compiler.opt
+	@mkdir -p $(BMP2JPG_MB_OUTPUT_DIR) 
+	$(BMP2JPG_MB_CC) $(BMP2JPG_MB_CC_OPT) $(BMP2JPG_MB_SOURCES) -o $(BMP2JPG_MB_OUTPUT) \
+	$(BMP2JPG_MB_OTHER_CC_FLAGS) $(BMP2JPG_MB_INCLUDES) $(BMP2JPG_MB_LIBPATH) \
+	$(BMP2JPG_MB_CFLAGS) $(BMP2JPG_MB_LFLAGS) 
+	$(BMP2JPG_MB_CC_SIZE) $(BMP2JPG_MB_OUTPUT) 
 
-Encoder_programclean:
-	rm -f $(ENCODER_OUTPUT) 
+bmp2jpg_mb_programclean:
+	rm -f $(BMP2JPG_MB_OUTPUT) 
 
 #################################################################
 # BOOTLOOP ELF FILES
@@ -201,11 +201,11 @@ $(DOWNLOAD_BIT): $(SYSTEM_BIT) $(BRAMINIT_ELF_FILES) __xps/bitinit.opt
 	-bt $(SYSTEM_BIT) -o $(DOWNLOAD_BIT)
 	@rm -f $(SYSTEM)_bd.bmm
 
-$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(ENCODER_OUTPUT) 
+$(SYSTEM_ACE): $(DOWNLOAD_BIT) $(BMP2JPG_MB_OUTPUT) 
 	@echo "*********************************************"
 	@echo "Creating system ace file"
 	@echo "*********************************************"
-	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(ENCODER_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
+	xmd -tcl genace.tcl -jprog -hw $(DOWNLOAD_BIT) -elf $(BMP2JPG_MB_OUTPUT)  -target mdm  -ace $(SYSTEM_ACE)
 
 #################################################################
 # SIMULATION FLOW
