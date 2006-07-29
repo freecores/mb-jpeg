@@ -35,28 +35,31 @@ void RGB2YCrCb(signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],signed char Y
 
 void RGB2Y_matrix(signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],signed char YUVMatrix[MATRIX_SIZE][MATRIX_SIZE])
 {
-        unsigned int row, col;
+        unsigned int row, col, col_3;
         for(row = 0;row < MATRIX_SIZE; row++) {
-                for(col = 0; col < MATRIX_SIZE; col++) {
-                        YUVMatrix[row][col] = RGB2Y(pixelmatrix[row][col*3+2],pixelmatrix[row][col*3+1],pixelmatrix[row][col*3]) - 128;
+                for(col = 0, col_3=0; col < MATRIX_SIZE; col++, col_3+=3) {
+			   pixelmatrix[row][col_3] -= 128;
+			   pixelmatrix[row][col_3+1] -= 128;
+			   pixelmatrix[row][col_3+2] -= 128;
+                        YUVMatrix[row][col] = RGB2Y(pixelmatrix[row][col_3+2],pixelmatrix[row][col_3+1],pixelmatrix[row][col_3]) - 128;
                 }
         }
 }
 void RGB2Cr_matrix(signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],signed char YUVMatrix[MATRIX_SIZE][MATRIX_SIZE])
 {
-        unsigned int row, col;
+        unsigned int row, col, col_3;
         for(row = 0;row < MATRIX_SIZE; row++) {
-                for(col = 0; col < MATRIX_SIZE; col++) {
-                        YUVMatrix[row][col] = RGB2Cr(pixelmatrix[row][col*3+2],pixelmatrix[row][col*3+1],pixelmatrix[row][col*3]) - 128;
+                for(col = 0, col_3=0; col < MATRIX_SIZE; col++, col_3+=3) {
+                        YUVMatrix[row][col] = RGB2Cr(pixelmatrix[row][col_3+2],pixelmatrix[row][col_3+1],pixelmatrix[row][col_3]) - 128;
                 }
         }
 }
 void RGB2Cb_matrix(signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3],signed char YUVMatrix[MATRIX_SIZE][MATRIX_SIZE])
 {
-        unsigned int row, col;
+        unsigned int row, col, col_3;
         for(row = 0;row < MATRIX_SIZE; row++) {
-                for(col = 0; col < MATRIX_SIZE; col++) {
-                        YUVMatrix[row][col] = RGB2Cb(pixelmatrix[row][col*3+2],pixelmatrix[row][col*3+1],pixelmatrix[row][col*3]) - 128;
+                for(col = 0, col_3; col < MATRIX_SIZE; col++, col_3) {
+                        YUVMatrix[row][col] = RGB2Cb(pixelmatrix[row][col_3+2],pixelmatrix[row][col_3+1],pixelmatrix[row][col_3]) - 128;
                 }
         }
 }

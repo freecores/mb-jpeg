@@ -13,7 +13,7 @@
 #endif
 
 char* bmpimage;
-int bmpsize; 
+int bmpsize;
 
 INFOHEADER _bmpheader;
 INFOHEADER *bmpheader;
@@ -48,8 +48,6 @@ unsigned char huffACvalues[162] = {0x01, 0x02, 0x03, 0x00, 0x04, 0x11, 0x05, 0x1
 signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3];
 signed char pmatrix2[MATRIX_SIZE][MATRIX_SIZE];   //YUV domain pixels
 
-unsigned char buffer[MATRIX_SIZE*3];
-
 int ejpgl_error(int errno, void* remark);
 
 void get_MB(int mb_row, int mb_col, signed char pixelmatrix[MATRIX_SIZE][MATRIX_SIZE*3]) {
@@ -58,10 +56,7 @@ void get_MB(int mb_row, int mb_col, signed char pixelmatrix[MATRIX_SIZE][MATRIX_
 	
         for(row = 0;row < MATRIX_SIZE; row++) {
 		offset = bmpsize-3*bmpheader->width*(row + 1 + mb_row*MATRIX_SIZE)+MATRIX_SIZE*3*mb_col;
-		memcpy(buffer, bmpimage + offset, MATRIX_SIZE*3);
-                for(col = 0; col < MATRIX_SIZE*3; col++) {
-                        pixelmatrix[row][col] = buffer[col]- 128;
-                }
+		memcpy(pixelmatrix[row], bmpimage + offset, MATRIX_SIZE*3);
         }
 
 }
