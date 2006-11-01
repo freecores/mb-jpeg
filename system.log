@@ -4490,3 +4490,213 @@ mb-size mb-bmp2jpg/executable.elf
   25636	   5293	   7892	  38821	   97a5	mb-bmp2jpg/executable.elf
 Done.
 No changes to be saved in XMP file
+Xilinx Platform Studio (XPS)
+Xilinx EDK 7.1.2 Build EDK_H.12.5.1
+
+Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+
+At Local date and time: Wed Nov 01 19:40:37 2006
+Command xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" Started...
+mb-gcc -O2 mb-bmp2jpg/bmp2jpg.c mb-bmp2jpg/ColorConversion.c mb-bmp2jpg/dct.c mb-bmp2jpg/huffman.c mb-bmp2jpg/jpeg.c mb-bmp2jpg/xupv2p.c mb-bmp2jpg/zzq.c  -o mb-bmp2jpg/executable.elf \
+   -mno-xl-soft-mul     -Wl,-T -Wl,mb-bmp2jpg_linker_script    -I./microblaze_0/include/  -Imb-bmp2jpg/  -L./microblaze_0/lib/  \
+-xl-mode-executable  \
+-D__XUPV2P -D__MICROBLAZE  
+mb-bmp2jpg/huffman.c: In function `HuffmanEncodeFinishSend':
+mb-bmp2jpg/huffman.c:285: warning: comparison is always true due to limited range of data type
+mb-bmp2jpg/xupv2p.c:12:1: warning: "__MICROBLAZE" redefined
+<command line>:5:1: warning: this is the location of the previous definition
+mb-size mb-bmp2jpg/executable.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25544	   5161	   7892	  38597	   96c5	mb-bmp2jpg/executable.elf
+Done.
+At Local date and time: Wed Nov 01 19:40:55 2006
+Command xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make program; exit;" Started...
+mb-gcc -O2 mb-bmp2jpg/bmp2jpg.c mb-bmp2jpg/ColorConversion.c mb-bmp2jpg/dct.c mb-bmp2jpg/huffman.c mb-bmp2jpg/jpeg.c mb-bmp2jpg/xupv2p.c mb-bmp2jpg/zzq.c  -o mb-bmp2jpg/executable.elf \
+   -mno-xl-soft-mul     -Wl,-T -Wl,mb-bmp2jpg_linker_script    -I./microblaze_0/include/  -Imb-bmp2jpg/  -L./microblaze_0/lib/  \
+-xl-mode-executable  \
+-D__XUPV2P  
+mb-bmp2jpg/huffman.c: In function `HuffmanEncodeFinishSend':
+mb-bmp2jpg/huffman.c:285: warning: comparison is always true due to limited range of data type
+mb-size mb-bmp2jpg/executable.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25544	   5161	   7892	  38597	   96c5	mb-bmp2jpg/executable.elf
+Done.
+At Local date and time: Wed Nov 01 19:41:02 2006
+Command xbash -q -c "cd /cygdrive/d/mb-jpeg/; /usr/bin/make -f system.make init_bram; exit;" Started...
+****************************************************
+Creating system netlist for hardware specification..
+****************************************************
+platgen -p xc2vp30ff896-7 -lang vhdl -lp D:/XilinxXUP/lib/  -st xst system.mhs
+
+Release Xilinx EDK 7.1.2 - platgen EDK_H.12.5.1
+Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+
+Command Line: platgen -p xc2vp30ff896-7 -lang vhdl -lp D:/XilinxXUP/lib/ -st xst
+system.mhs 
+
+Parse system.mhs ...
+
+Read MPD definitions ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/microblaze_v4_00_a/data/microblaze_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_v10_v1_00_a/data/lmb_v10_v2_1_0.tcl
+...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/lmb_bram_if_cntlr_v1_00_b/data/lmb_bram_if
+_cntlr_v2_1_0.tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_sysace_v1_00_c/data/opb_sysace_v2_1_0.
+tcl ...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/opb_ddr_v2_00_b/data/opb_ddr_v2_1_0.tcl
+...
+
+Overriding IP level properties ...
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:60 - tool overriding c_family value virtex2 to virtex2p
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:61 - tool overriding c_instance value microblaze to microblaze_0
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:90 - tcl overriding C_ADDR_TAG_BITS value 17 to 0
+microblaze (microblaze_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\microblaze_v4_00_a\data\microblaze_v2_1_0.
+mpd:97 - tcl overriding C_DCACHE_ADDR_TAG value 17 to 0
+opb_mdm (debug_module) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_mdm_v2_00_a\data\opb_mdm_v2_1_0.mpd:38
+- tool overriding c_family value virtex2 to virtex2p
+bram_block (lmb_bram) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:39 - tool overriding c_family value virtex2 to virtex2p
+opb_ddr (ddr_256mb_32mx64_rank1_row13_col10_cl2_5) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_ddr_v2_00_b\data\opb_ddr_v2_1_0.mpd:42
+- tool overriding c_family value virtex2 to virtex2p
+dcm_module (dcm_0) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd:56 - tool overriding c_family value virtex2 to virtex2p
+dcm_module (dcm_1) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\dcm_module_v1_00_a\data\dcm_module_v2_1_0.
+mpd:56 - tool overriding c_family value virtex2 to virtex2p
+
+Performing IP level DRCs on properties...
+
+Running DRC Tcl procedures for OPTION IPLEVEL_DRC_PROC...
+Address Map for Processor microblaze_0
+  (0x00000000-0x0000ffff) dlmb_cntlr	dlmb
+  (0x00000000-0x0000ffff) ilmb_cntlr	ilmb
+  (0x30000000-0x3fffffff) DDR_256MB_32MX64_rank1_row13_col10_cl2_5	mb_opb
+  (0x40600000-0x4060ffff) RS232_Uart_1	mb_opb
+  (0x41400000-0x4140ffff) debug_module	mb_opb
+  (0x41800000-0x4180ffff) SysACE_CompactFlash	mb_opb
+
+Check platform configuration ...
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs:68 - 2 master(s) : 4 slave(s)
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs:94 - 1 master(s) : 1 slave(s)
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs:102 - 1 master(s) : 1 slave(s)
+
+Check port drivers...
+
+Check platform address map ...
+
+Overriding system level properties ...
+opb_v20 (mb_opb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\opb_v20_v1_10_c\data\opb_v20_v2_1_0.mpd:36
+- tool overriding c_num_masters value 4 to 2
+lmb_v10 (ilmb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
+- tool overriding c_lmb_num_slaves value 4 to 1
+lmb_v10 (dlmb) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_v10_v1_00_a\data\lmb_v10_v2_1_0.mpd:36
+- tool overriding c_lmb_num_slaves value 4 to 1
+lmb_bram_if_cntlr (dlmb_cntlr) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x10c00000
+lmb_bram_if_cntlr (ilmb_cntlr) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\lmb_bram_if_cntlr_v1_00_b\data\lmb_bram_if
+_cntlr_v2_1_0.mpd:42 - tool overriding c_mask value 0x00800000 to 0x10c00000
+bram_block (lmb_bram) -
+C:\EDK\hw\XilinxProcessorIPLib\pcores\bram_block_v1_00_a\data\bram_block_v2_1_0.
+mpd:35 - tool overriding c_memsize value 2048 to 65536
+
+Running DRC Tcl procedures for OPTION SYSLEVEL_DRC_PROC...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/ddr_v2_00_b/data/ddr_v2_1_0.tcl ...
+
+Performing System level DRCs on properties...
+
+Running UPDATE Tcl procedures for OPTION PLATGEN_SYSLEVEL_UPDATE_PROC...
+Sourcing tcl file
+C:/EDK/hw/XilinxProcessorIPLib/pcores/ddr_v2_00_b/data/ddr_v2_1_0.tcl ...
+INFO: The DDR_256MB_32MX64_rank1_row13_col10_cl2_5 core has constraints automatically generated by XPS in implementation/ddr_256mb_32mx64_rank1_row13_col10_cl2_5_wrapper/ddr_256mb_32mx64_rank1_row13_col10_cl2_5_wrapper.ucf.
+It can be overridden by constraints placed in the system.ucf file.
+
+
+Modify defaults ...
+
+Processing licensed instances ...
+Completion time: 0.00 seconds
+
+Creating hardware output directories ...
+
+Managing hardware (BBD-specified) netlist files ...
+
+Managing cache ...
+microblaze (microblaze_0) - D:\mb-jpeg\system.mhs:48 - Copying cache
+implementation netlist
+opb_v20 (mb_opb) - D:\mb-jpeg\system.mhs:68 - Copying cache implementation
+netlist
+opb_mdm (debug_module) - D:\mb-jpeg\system.mhs:76 - Copying cache implementation
+netlist
+lmb_v10 (ilmb) - D:\mb-jpeg\system.mhs:94 - Copying cache implementation netlist
+lmb_v10 (dlmb) - D:\mb-jpeg\system.mhs:102 - Copying cache implementation
+netlist
+lmb_bram_if_cntlr (dlmb_cntlr) - D:\mb-jpeg\system.mhs:110 - Copying cache
+implementation netlist
+lmb_bram_if_cntlr (ilmb_cntlr) - D:\mb-jpeg\system.mhs:119 - Copying cache
+implementation netlist
+bram_block (lmb_bram) - D:\mb-jpeg\system.mhs:128 - Copying cache implementation
+netlist
+opb_uartlite (rs232_uart_1) - D:\mb-jpeg\system.mhs:135 - Copying cache
+implementation netlist
+opb_sysace (sysace_compactflash) - D:\mb-jpeg\system.mhs:151 - Copying cache
+implementation netlist
+util_vector_logic (sysclk_inv) - D:\mb-jpeg\system.mhs:212 - Copying cache
+implementation netlist
+util_vector_logic (clk90_inv) - D:\mb-jpeg\system.mhs:221 - Copying cache
+implementation netlist
+util_vector_logic (ddr_clk90_inv) - D:\mb-jpeg\system.mhs:230 - Copying cache
+implementation netlist
+dcm_module (dcm_0) - D:\mb-jpeg\system.mhs:239 - Copying cache implementation
+netlist
+dcm_module (dcm_1) - D:\mb-jpeg\system.mhs:255 - Copying cache implementation
+netlist
+
+Elaborating instances ...
+bram_block (lmb_bram) - D:\mb-jpeg\system.mhs:128 - elaborating IP
+
+Writing HDL for elaborated instances ...
+
+Inserting wrapper level ...
+Completion time: 3.00 seconds
+
+Constructing platform-level signal connectivity ...
+Completion time: 4.00 seconds
+
+Writing (top-level) BMM ...
+Writing BMM - D:\mb-jpeg\implementation\system.bmm
+
+Writing (top-level and wrappers) HDL ...
+
+Generating synthesis project file ...
+
+Running XST synthesis ...
+INFO:MDT - The following instances are synthesized with XST. The MPD option
+   IMP_NETLIST=TRUE indicates that a NGC file is to be produced using XST
+   synthesis. IMP_NETLIST=FALSE (default) instances are not synthesized.
+ddr_256mb_32mx64_rank1_row13_col10_cl2_5_wrapper
+(ddr_256mb_32mx64_rank1_row13_col10_cl2_5) - D:\mb-jpeg\system.mhs:168 - Running
+XST synthesis

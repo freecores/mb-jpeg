@@ -14,16 +14,7 @@ int main(int argc, char* argv[])
 	int compression,sample;
 	unsigned int col, cols, row, rows;
 
-	if (argc<3) {
-		xil_printf("USAGE: bmp2jpg source_file destination_file\n");
-              return 0;
-  	}
-
-  	if (openBMPJPG(argv[1], argv[2]) == 0) {
-          	xil_printf("Input file %s does not exist!\n\nUSAGE: jpegcodec source_file destination_file [/E] [compression_rate]\n",argv[1]);
-		return 0;
-  	}
-
+  	openBMPJPG(argc, argv[1], argv[2]);
  
 	rows = bmpheader->height>>4;
        cols = bmpheader->width>>4;

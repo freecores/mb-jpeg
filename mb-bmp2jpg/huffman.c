@@ -57,11 +57,10 @@ void ConvertDCMagnitudeC(unsigned char magnitude,unsigned short int *out, unsign
 {
 	unsigned char len;
 	
-	if ((magnitude>16) || ((len=convertDCMagnitudeCLengthTable[magnitude])==0)) {
-#ifndef __MICROBLAZE
+/*	if ((magnitude>16) || ((len=convertDCMagnitudeCLengthTable[magnitude])==0)) {
 		printf("WAARDE STAAT NIET IN TABEL!!!!!!!!!!!!!!!!!!!!\n");
-#endif
-		}
+		} */
+		
 	*lenght = len;
 	*out = convertDCMagnitudeCOutTable[magnitude];
 
@@ -111,11 +110,9 @@ void ConvertACMagnitudeC(unsigned char magnitude,unsigned short int *out, unsign
 	unsigned char len;
 	
 	len = convertACMagnitudeCLengthTable[magnitude];
-	if (!len) {
-#ifndef __MICROBLAZE
+/*	if (!len) {
 		printf("WAARDE STAAT NIET IN TABEL!!!!!!!!!!!!!!!!!!!!\n");
-#endif
-		}
+		} */
 	*lenght = len;
 	*out = convertACMagnitudeCOutTable[magnitude];
 	
@@ -136,11 +133,9 @@ void ConvertDCMagnitudeY(unsigned char magnitude,unsigned short int *out, unsign
 {
 	unsigned char len;
 	
-	if ((magnitude>16) || ((len=convertDCMagnitudeYLengthTable[magnitude])==0)) {
-#ifndef __MICROBLAZE
+/*	if ((magnitude>16) || ((len=convertDCMagnitudeYLengthTable[magnitude])==0)) {
 		printf("WAARDE STAAT NIET IN TABEL!!!!!!!!!!!!!!!!!!!!\n");
-#endif
-		}
+		} */
 	*lenght = len;
 	*out = convertDCMagnitudeYOutTable[magnitude];
 }
@@ -189,11 +184,11 @@ void ConvertACMagnitudeY(unsigned char magnitude,unsigned short int *out, unsign
 	unsigned char len;
 
 	len = convertACMagnitudeYLength[magnitude];
-	if (!len) {
+/*	if (!len) {
 #ifndef __MICROBLAZE
 	printf("WAARDE STAAT NIET IN TABEL!!!!!!!!!!!!!!!!!!!!\n");
 #endif
-		}
+		} */
 	*lenght = len;
 	*out = convertACMagnitudeYOut[magnitude];
 	
@@ -244,9 +239,9 @@ void WriteRawBits16(unsigned char amount_bits, unsigned int bits)     //*remaini
         vlc_amount_remaining=vlc_amount_remaining + amount_bits;                      //change *amount_remaining to the correct new value
         if (vlc_amount_remaining >= 16)                                            //are there more than 16 bits in buffer, send 16 bits
         {
-#ifndef __MICROBLAZE        
+/* #ifndef __MICROBLAZE        
 if (vlc_amount_remaining >= 32 ) printf("ERROR, more bits to send %d",vlc_amount_remaining);
-#endif
+#endif */
                 send=vlc_remaining>>(vlc_amount_remaining-16);                        //this value can be send/stored (in art this can be dony by selecting bits)
                 send2=(send & 0xFF00) >>8;
 		  vlc_output_byte(send2);

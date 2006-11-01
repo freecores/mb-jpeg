@@ -108,7 +108,7 @@ typedef struct {
 } JPEGHEADER;
 
 
-int openBMPJPG(char* bmpfilename, char* jpgfilename);
+int openBMPJPG(int argc, char* bmpfilename, char* jpgfilename);
 int closeBMPJPG();
 
 

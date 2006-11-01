@@ -45,39 +45,45 @@ unsigned short hton(unsigned short x) {
 }
 
 
-int openBMPJPG(char* bmpfilename, char* jpgfilename) {
+int openBMPJPG(int argc, char* bmpfilename, char* jpgfilename) {
 	int jpegheadersize;
 	
 	bmpimage=(unsigned char*)0x70000000;
   	bmpsize=0;
 
   	xil_printf("\r\nBMP2JPG Code Compiled at %s %s\r\n", __DATE__, __TIME__);
+	
+	bmpfilename = "image01.bmp";  // argc argv is not accepted on XUPV2P yet
+	jpgfilename = "image01.jpg";
 
   	bmpheader=&_bmpheader;
 
   	if ((infile = sysace_fopen(bmpfilename, "r")) == NULL) {   // not "rb"
        	xil_printf("\n\r%s is not a valid BMP-file",bmpfilename);
-	  	return 0;
+	  	exit(0);
   	}
 
   	bmpsize = sysace_fread(bmpimage, 1, BMP_MAXSIZE, infile);
   	xil_printf("bmpsize %d\r\n", bmpsize);
   	if (bmpsize==BMP_MAXSIZE) {
        	xil_printf("\n\r%s is too large",bmpfilename);
-	  	return 0;
+	  	exit(0);
   	}
 
 
   	if (getbmpheader(bmpheader) == 0) { //File is a valid BMP
        	xil_printf("\r\n%s is not a valid BMP-file",bmpfilename);
-	  	return 0;
+	  	exit(0);
   	}
   
 	xil_printf("Image width: %d pixels\r\n", bmpheader->width);
 	xil_printf("Image height: %d pixels\r\n", bmpheader->height);
 
        outfile = sysace_fopen(jpgfilename, "w");  // not "wb"
-  	if (outfile == NULL) return 0;
+  	if (outfile == NULL) {
+       	xil_printf("\r\nerror in writing jpg header");
+	  	exit(0);
+  		}
   
     	jpegheadersize = writejpegheader(bmpheader, &_jpegheader);
 	if (jpegheadersize == 0) return 0;
