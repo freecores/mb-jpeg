@@ -71,4 +71,4 @@ ProgStart:
 StackSize: 
 HeapSize: 
 LinkerScript: mb-bmp2jpg_linker_script
-ProgCCFlags: -D__XUPV2P -D__MICROBLAZE
+ProgCCFlags: -D__XUPV2P

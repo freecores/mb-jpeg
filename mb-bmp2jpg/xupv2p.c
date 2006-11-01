@@ -14,7 +14,7 @@
 
 // XUPV2P board related declaration 
 
-#define BMP_ADDRESS  0x70000000
+#define BMP_ADDRESS  0x30000000
 #define BMP_MAXSIZE   4*1024*1024
 
 
@@ -48,7 +48,7 @@ unsigned short hton(unsigned short x) {
 int openBMPJPG(int argc, char* bmpfilename, char* jpgfilename) {
 	int jpegheadersize;
 	
-	bmpimage=(unsigned char*)0x70000000;
+	bmpimage=(unsigned char*)BMP_ADDRESS;
   	bmpsize=0;
 
   	xil_printf("\r\nBMP2JPG Code Compiled at %s %s\r\n", __DATE__, __TIME__);
