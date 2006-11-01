@@ -1,0 +1,11 @@
+Xilinx Platform Studio (XPS)
+Xilinx EDK 7.1.2 Build EDK_H.12.5.1
+
+Copyright (c) 1995-2005 Xilinx, Inc.  All rights reserved.
+
+Copied file bitgen.ut from $XILINX_EDK/data/xflow directory to etc directory
+Copied file bitgen_spartan3.ut from $XILINX_EDK/data directory to etc directory
+Copied file fast_runtime.opt from $XILINX_EDK/data/xflow directory to etc directory
+WARNING:MDT - Created an empty D:\mb-jpeg\data\system.ucf. If your design needs any constraints, please make changes to this UCF file.
+Project Opened.
+No changes to be saved in XMP file
