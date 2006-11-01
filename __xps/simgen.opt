@@ -1,1 +1,0 @@
- -p virtex2p -lang vhdl -lp D:/XilinxXUP/lib/    -pe microblaze_0 Testbench1/executable.elf -s mti
