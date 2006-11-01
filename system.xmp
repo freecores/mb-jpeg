@@ -37,7 +37,7 @@ Executable: TestApp_Memory/executable.elf
 Source: TestApp_Memory/src/TestApp_Memory.c
 DefaultInit: EXECUTABLE
 InitBram: 1
-Active: 1
+Active: 0
 CompilerOptLevel: 2
 GlobPtrOpt: 0
 DebugSym: 1
@@ -48,3 +48,27 @@ StackSize:
 HeapSize: 
 LinkerScript: TestApp_Memory/src/TestApp_Memory_LinkScr
 ProgCCFlags: 
+SwProj: mb-bmp2jpg
+Processor: microblaze_0
+Executable: mb-bmp2jpg/executable.elf
+Source: mb-bmp2jpg/bmp2jpg.c
+Source: mb-bmp2jpg/ColorConversion.c
+Source: mb-bmp2jpg/dct.c
+Source: mb-bmp2jpg/huffman.c
+Source: mb-bmp2jpg/jpeg.c
+Source: mb-bmp2jpg/xupv2p.c
+Source: mb-bmp2jpg/zzq.c
+Header: mb-bmp2jpg/ejpgl.h
+DefaultInit: EXECUTABLE
+InitBram: 1
+Active: 1
+CompilerOptLevel: 2
+GlobPtrOpt: 0
+DebugSym: 0
+AsmOpt: 
+LinkOpt: 
+ProgStart: 
+StackSize: 
+HeapSize: 
+LinkerScript: mb-bmp2jpg_linker_script
+ProgCCFlags: -D__XUPV2P -D__MICROBLAZE

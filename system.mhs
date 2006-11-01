@@ -1,23 +1,17 @@
-# 
 # ##############################################################################
-# 
 # Created by Base System Builder Wizard for Xilinx EDK 7.1.2 Build EDK_H.12.5.1
-# 
 # Wed Nov 01 18:23:34 2006
-# 
 # Target Board:  Xilinx XUP Virtex-II Pro Development System Rev C
 # Family:	 virtex2p
 # Device:	 xc2vp30
 # Package:	 ff896
 # Speed Grade:	 -7
-# 
 # Processor: Microblaze
 # System clock frequency: 100.000000 MHz
 # Debug interface: On-Chip HW Debug Module
 # On Chip Memory :   8 KB
 # Total Off Chip Memory : 256 MB
-#   - DDR_SDRAM_32Mx64 Single Rank = 256 MB
-# 
+# - DDR_SDRAM_32Mx64 Single Rank = 256 MB
 # ##############################################################################
 
 
@@ -27,22 +21,22 @@
  PORT fpga_0_RS232_Uart_1_RX_pin = fpga_0_RS232_Uart_1_RX, DIR = INPUT
  PORT fpga_0_RS232_Uart_1_TX_pin = fpga_0_RS232_Uart_1_TX, DIR = OUTPUT
  PORT fpga_0_SysACE_CompactFlash_SysACE_CLK_pin = fpga_0_SysACE_CompactFlash_SysACE_CLK, DIR = INPUT
- PORT fpga_0_SysACE_CompactFlash_SysACE_MPA_pin = fpga_0_SysACE_CompactFlash_SysACE_MPA, DIR = OUTPUT, VEC = [6:0]
- PORT fpga_0_SysACE_CompactFlash_SysACE_MPD_pin = fpga_0_SysACE_CompactFlash_SysACE_MPD, DIR = INOUT, VEC = [15:0]
+ PORT fpga_0_SysACE_CompactFlash_SysACE_MPA_pin = fpga_0_SysACE_CompactFlash_SysACE_MPA, VEC = [6:0], DIR = OUTPUT
+ PORT fpga_0_SysACE_CompactFlash_SysACE_MPD_pin = fpga_0_SysACE_CompactFlash_SysACE_MPD, VEC = [15:0], DIR = INOUT
  PORT fpga_0_SysACE_CompactFlash_SysACE_CEN_pin = fpga_0_SysACE_CompactFlash_SysACE_CEN, DIR = OUTPUT
  PORT fpga_0_SysACE_CompactFlash_SysACE_OEN_pin = fpga_0_SysACE_CompactFlash_SysACE_OEN, DIR = OUTPUT
  PORT fpga_0_SysACE_CompactFlash_SysACE_WEN_pin = fpga_0_SysACE_CompactFlash_SysACE_WEN, DIR = OUTPUT
  PORT fpga_0_SysACE_CompactFlash_SysACE_MPIRQ_pin = fpga_0_SysACE_CompactFlash_SysACE_MPIRQ, DIR = INPUT
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clk_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clk, DIR = OUTPUT, VEC = [0:2]
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clkn_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clkn, DIR = OUTPUT, VEC = [0:2]
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Addr_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Addr, DIR = OUTPUT, VEC = [0:12]
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_BankAddr_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_BankAddr, DIR = OUTPUT, VEC = [0:1]
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clk_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clk, VEC = [0:2], DIR = OUTPUT
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clkn_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Clkn, VEC = [0:2], DIR = OUTPUT
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Addr_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Addr, VEC = [0:12], DIR = OUTPUT
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_BankAddr_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_BankAddr, VEC = [0:1], DIR = OUTPUT
  PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_CASn_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_CASn, DIR = OUTPUT
  PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_RASn_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_RASn, DIR = OUTPUT
  PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_WEn_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_WEn, DIR = OUTPUT
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DM_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DM, DIR = OUTPUT, VEC = [0:7]
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQS_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQS, DIR = INOUT, VEC = [0:7]
- PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQ_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQ, DIR = INOUT, VEC = [0:63]
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DM_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DM, VEC = [0:7], DIR = OUTPUT
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQS_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQS, VEC = [0:7], DIR = INOUT
+ PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQ_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_DQ, VEC = [0:63], DIR = INOUT
  PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_CKE_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_CKE, DIR = OUTPUT
  PORT fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_CSn_pin = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_CSn, DIR = OUTPUT
  PORT fpga_0_DDR_CLK_FB = ddr_feedback_s, DIR = INPUT
@@ -117,7 +111,7 @@ BEGIN lmb_bram_if_cntlr
  PARAMETER INSTANCE = dlmb_cntlr
  PARAMETER HW_VER = 1.00.b
  PARAMETER C_BASEADDR = 0x00000000
- PARAMETER C_HIGHADDR = 0x00001fff
+ PARAMETER C_HIGHADDR = 0x0000ffff
  BUS_INTERFACE SLMB = dlmb
  BUS_INTERFACE BRAM_PORT = dlmb_port
 END
@@ -126,7 +120,7 @@ BEGIN lmb_bram_if_cntlr
  PARAMETER INSTANCE = ilmb_cntlr
  PARAMETER HW_VER = 1.00.b
  PARAMETER C_BASEADDR = 0x00000000
- PARAMETER C_HIGHADDR = 0x00001fff
+ PARAMETER C_HIGHADDR = 0x0000ffff
  BUS_INTERFACE SLMB = ilmb
  BUS_INTERFACE BRAM_PORT = ilmb_port
 END
