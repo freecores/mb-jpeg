@@ -1,23 +1,17 @@
-# 
 # ##############################################################################
-# 
 # Created by Base System Builder Wizard for Xilinx EDK 7.1.2 Build EDK_H.12.5.1
-# 
 # Wed Nov 01 17:33:15 2006
-# 
 # Target Board:  Xilinx XUP Virtex-II Pro Development System Rev C
 # Family:	 virtex2p
 # Device:	 xc2vp30
 # Package:	 ff896
 # Speed Grade:	 -7
-# 
 # Processor: Microblaze
 # System clock frequency: 100.000000 MHz
 # Debug interface: On-Chip HW Debug Module
 # On Chip Memory :  64 KB
 # Total Off Chip Memory : 256 MB
-#   - DDR_SDRAM_32Mx64 Single Rank = 256 MB
-# 
+# - DDR_SDRAM_32Mx64 Single Rank = 256 MB
 # ##############################################################################
 
 
@@ -206,8 +200,8 @@ BEGIN opb_ddr
  PARAMETER C_DDR_COL_AWIDTH = 10
  PARAMETER C_DDR_BANK_AWIDTH = 2
  PARAMETER C_DDR_DWIDTH = 64
- PARAMETER C_MEM0_BASEADDR = 0x30000000
- PARAMETER C_MEM0_HIGHADDR = 0x3fffffff
+ PARAMETER C_MEM0_BASEADDR = 0x70000000
+ PARAMETER C_MEM0_HIGHADDR = 0x7fffffff
  BUS_INTERFACE SOPB = mb_opb
  PORT OPB_Clk = sys_clk_s
  PORT DDR_Addr = fpga_0_DDR_256MB_32MX64_rank1_row13_col10_cl2_5_DDR_Addr
